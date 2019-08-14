@@ -1,0 +1,1 @@
+import SlickSettings from './SlickSettings';

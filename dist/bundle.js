@@ -1,0 +1,9 @@
+!function(n){var r={};function _(e){if(r[e])return r[e].exports;var t=r[e]={i:e,l:!1,exports:{}};return n[e].call(t.exports,t,t.exports,_),t.l=!0,t.exports}_.m=n,_.c=r,_.d=function(e,t,n){_.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},_.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},_.t=function(t,e){if(1&e&&(t=_(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(_.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)_.d(n,r,function(e){return t[e]}.bind(null,r));return n},_.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return _.d(t,"a",t),t},_.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},_.p="",_(_.s="./js/index.js")}({"./js/SlickSettings.js":
+/*!*****************************!*\
+  !*** ./js/SlickSettings.js ***!
+  \*****************************/
+/*! exports provided: SlickSettings */function(module,__webpack_exports__,__webpack_require__){"use strict";eval('__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SlickSettings", function() { return SlickSettings; });\nconst SlickSettings = (function(){\n    \n})();\n\n//# sourceURL=webpack:///./js/SlickSettings.js?')},"./js/index.js":
+/*!*********************!*\
+  !*** ./js/index.js ***!
+  \*********************/
+/*! no exports provided */function(module,__webpack_exports__,__webpack_require__){"use strict";eval('__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _SlickSettings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SlickSettings */ "./js/SlickSettings.js");\n\n\n//# sourceURL=webpack:///./js/index.js?')}});
