@@ -15,9 +15,10 @@
 get_header();
 ?>
 
-	<div id="primary_front-page" class="content-area_front-page ">
-		<main id="main_front-page" class="site-main_front-page">
-			
+	<div id="bio-primary" class="bio_content-area">
+		<main id="main_bio" class="bio-main">
+
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

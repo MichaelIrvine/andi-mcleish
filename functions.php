@@ -45,6 +45,8 @@ if ( ! function_exists( 'andi_mcleish_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'andi-mcleish' ),
+			'projects' => esc_html__( 'Projects', 'andi-mcleish' ),
+			'footer' => esc_html__('Footer Navigation', 'andi-mcleish'),
 		) );
 
 		/*
@@ -134,6 +136,20 @@ function andi_mcleish_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'andi_mcleish_scripts' );
 
+// ADOBE FONTS
+function amc_fonts_scripts() {
+	wp_enqueue_style('amc-adobe-fonts-poynterGothic', "https://use.typekit.net/ybq4gcl.css");
+}
+add_action( 'wp_enqueue_scripts', 'amc_fonts_scripts' );
+
+// SWIPER LIBRARY
+function amc_swiper_scripts() {
+	wp_enqueue_style('amc-swiper-style', get_stylesheet_directory_uri() . '/node_modules/swiper/dist/css/swiper.min.css', true);
+
+	wp_enqueue_script('amc-swiper-script', get_stylesheet_directory_uri()."/node_modules/swiper/dist/js/swiper.min.js", array('jquery'), '1', true);
+
+}
+add_action( 'wp_enqueue_scripts', 'amc_swiper_scripts' );
 
 // Page Specific JS
 function load_js_assets() {
@@ -175,3 +191,139 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+
+/**
+ * Footer Details - Copyright & Dev Info
+ */
+if( function_exists('acf_add_options_page') ) {
+    $args = array(
+          'page_title' => 'Footer Details',
+		  'menu_title' => 'Footer Details',
+		  'menu_slug'  => 'footer-details',
+          'icon_url' => 'dashicons-edit'
+          //other args
+      );
+    acf_add_options_page($args);
+}
+
+
+/**
+ * Andi McLeish CPT - Projects ------
+ */
+function amc_register_custom_post_types() {
+    $labels = array(
+        'name'               => _x( 'Projects', 'post type general name' ),
+        'singular_name'      => _x( 'Projects', 'post type singular name'),
+        'menu_name'          => _x( 'Projects', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Projects', 'add new on admin bar' ),
+        'add_new'            => _x( 'Add New', 'Projects' ),
+        'add_new_item'       => __( 'Add New Projects' ),
+        'new_item'           => __( 'New Projects' ),
+        'edit_item'          => __( 'Edit Projects' ),
+        'view_item'          => __( 'View Projects' ),
+        'all_items'          => __( 'All Projects' ),
+        'search_items'       => __( 'Search Projects' ),
+        'parent_item_colon'  => __( 'Parent Projects:' ),
+        'not_found'          => __( 'No Projects found.' ),
+        'not_found_in_trash' => __( 'No Projects found in Trash.' ),
+        'archives'           => __( 'Projects Archives'),
+        'insert_into_item'   => __( 'Uploaded to this Projects'),
+        'uploaded_to_this_item' => __( 'Projects Archives'),
+        'filter_item_list'   => __( 'Filter Projects list'),
+        'items_list_navigation' => __( 'Projects list navigation'),
+        'items_list'         => __( 'Projects list'),
+        'featured_image'     => __( 'Projects feature image'),
+        'set_featured_image' => __( 'Set Projects feature image'),
+        'remove_featured_image' => __( 'Remove Projects feature image'),
+		'use_featured_image' => __( 'Use as feature image'),
+		
+    );
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_nav_menus'  => true,
+        'show_in_admin_bar'  => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'projects' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+		'menu_icon'          => 'dashicons-migrate',
+		'taxonomies'          => array('project_types'),
+    );
+	register_post_type( 'projects', $args );
+ }
+ add_action( 'init', 'amc_register_custom_post_types' );
+ /* Flush */
+     function amc_rewrite_flush() {
+        amc_register_custom_post_types();
+        flush_rewrite_rules();
+    }
+	register_activation_hook( __FILE__, 'amc_rewrite_flush' );
+
+ /**
+ * Andi McLeish Register Custom Taxonomy
+ */
+function project_types() {
+	$labels = array(
+		'name'                       => _x( 'Project Types', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Project Type', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Project Type', 'text_domain' ),
+		'all_items'                  => __( 'All Project Types', 'text_domain' ),
+		'parent_item'                => __( 'Parent Project Type', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent Project Type', 'text_domain' ),
+		'new_item_name'              => __( 'New Project Type Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Project Type', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Project Type', 'text_domain' ),
+		'update_item'                => __( 'Update Project Type', 'text_domain' ),
+		'view_item'                  => __( 'View Project Type', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate project type with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove Project Types', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Project Types', 'text_domain' ),
+		'search_items'               => __( 'Search Project Types', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'no_terms'                   => __( 'No Project Types', 'text_domain' ),
+		'items_list'                 => __( 'Project Types list', 'text_domain' ),
+		'items_list_navigation'      => __( 'Project Types list navigation', 'text_domain' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'project_types', array( 'projects' ), $args );
+}
+add_action( 'init', 'project_types', 0 );
+
+
+ /**
+ * Function to make the custom tax/post display in correct order
+ */
+function set_the_terms_in_order ( $terms, $id, $taxonomy ) {
+	$terms = wp_cache_get( $id, "{$taxonomy}_relationships_sorted" );
+	if ( false === $terms ) {
+		$terms = wp_get_object_terms( $id, $taxonomy, array( 'orderby' => 'term_order' ) );
+		wp_cache_add($id, $terms, $taxonomy . '_relationships_sorted');
+	}
+	return $terms;
+	}
+	add_filter( 'get_the_terms', 'set_the_terms_in_order' , 10, 4 );
+	function do_the_terms_in_order () {
+		global $wp_taxonomies;  //fixed missing semicolon
+		// the following relates to tags, but you can add more lines like this for any taxonomy
+		$wp_taxonomies['post_tag']->sort = true;
+		$wp_taxonomies['post_tag']->args = array( 'orderby' => 'term_order' );    
+	}
+	add_action( 'init', 'do_the_terms_in_order');
