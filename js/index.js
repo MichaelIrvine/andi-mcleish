@@ -1,1 +1,1 @@
-import SlickSettings from './SlickSettings';
+console.log("fuckk");

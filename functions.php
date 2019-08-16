@@ -123,12 +123,18 @@ add_action( 'widgets_init', 'andi_mcleish_widgets_init' );
  */
 function andi_mcleish_scripts() {
 	wp_enqueue_style( 'andi-mcleish-style', get_stylesheet_uri() );
+	// Adobe Fonts
+	wp_enqueue_style('amc-adobe-fonts-poynterGothic', "https://use.typekit.net/ybq4gcl.css");
+	// Swiper CSS
+	wp_enqueue_style('amc-swiper-style', get_stylesheet_directory_uri() . '/node_modules/swiper/dist/css/swiper.min.css');
 
-	wp_enqueue_script( 'andi-mcleish-main', get_template_directory_uri() . '/dist/bundle.js', array(), '20190711', true );
+	wp_enqueue_script( 'andi-mcleish-main', get_stylesheet_directory_uri() . '/dist/bundle.js', true );
 
-	wp_enqueue_script( 'andi-mcleish-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'andi-mcleish-navigation', get_stylesheet_directory_uri() . '/js/navigation.js', true );
 
-	wp_enqueue_script( 'andi-mcleish-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'andi-mcleish-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', true );
+	// Swiper Min JS
+	wp_enqueue_script( 'amc-swiper-script', get_template_directory_uri() . '/node_modules/swiper/dist/js/swiper.min.js', false );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -136,31 +142,6 @@ function andi_mcleish_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'andi_mcleish_scripts' );
 
-// ADOBE FONTS
-function amc_fonts_scripts() {
-	wp_enqueue_style('amc-adobe-fonts-poynterGothic', "https://use.typekit.net/ybq4gcl.css");
-}
-add_action( 'wp_enqueue_scripts', 'amc_fonts_scripts' );
-
-// SWIPER LIBRARY
-function amc_swiper_scripts() {
-	wp_enqueue_style('amc-swiper-style', get_stylesheet_directory_uri() . '/node_modules/swiper/dist/css/swiper.min.css', true);
-
-	wp_enqueue_script('amc-swiper-script', get_stylesheet_directory_uri()."/node_modules/swiper/dist/js/swiper.min.js", array('jquery'), '1', true);
-
-}
-add_action( 'wp_enqueue_scripts', 'amc_swiper_scripts' );
-
-// Page Specific JS
-function load_js_assets() {
-	// Preloader script for Home Page
-	// if( is_page( 5 ) ) {
-	// 		wp_enqueue_script( 'preloader', get_template_directory_uri() . '/js/preloader.js', array('jquery'), '20190605', true );
-	// }
-	
-}
- 
-add_action('wp_enqueue_scripts', 'load_js_assets');
 
 
 
