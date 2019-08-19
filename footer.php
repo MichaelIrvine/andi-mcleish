@@ -15,9 +15,9 @@
 
 <footer id="colophon" class="site-footer">
 	<div class="footer_col-01">
-		<h3 class="footer_col-02-title">Andi McLeish</h3>
+		<h3 class="footer_col-01-title">Andi McLeish</h3>
 		<!-- FOOTER NAV GOES HERE -->
-		<nav id="footer-navigation" class="footer-navigation">
+		<nav id="footer-navigation-main" class="footer-navigation_main">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'footer',
@@ -25,19 +25,32 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
-		<h2>Hel</h2>
+
+		<h3 class="footer_col-01-title">Social</h3>
+		<nav id="footer-navigation-social" class="footer-navigation_social">
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'social-media',
+				'menu_id'        => 'Social Media',
+			) );
+			?>
+		</nav><!-- #site-navigation -->
+		
 	</div>
 	<div class="footer_col-02">
 		<h3 class="footer_col-02-title">Contact</h3>
 		<!-- CONTACT INFO GOES HERE -->
 		<?php the_field('footer_contact_details', 'option'); ?>
-		<h2>lo</h2>
+		
 	</div>
 
+<div class="preloader"></div>
+<div id="cursor" class="cursor--ready"></div>
 
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
+<?php wp_footer(); ?>
 
 </body>
 </html>

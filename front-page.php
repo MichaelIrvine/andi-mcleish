@@ -17,34 +17,39 @@ get_header();
 
 	<div id="primary_front-page" class="content-area_front-page ">
 		<main id="main_front-page" class="site-main_front-page">
-			<div class="front-page-gallery swiper-container">
-			<?php if( have_rows('repeater_field_name') ): ?>
+		
+		<div class="front-page-gallery swiper-container">
+			
+			<?php if( have_rows('front_page_gallery') ): ?>
 
 				<ul class="front-page-slides swiper-wrapper">
+				
 
-				<?php while( have_rows('repeater_field_name') ): the_row(); 
+				<?php while( have_rows('front_page_gallery') ): the_row(); 
 
 					// vars
-					$image = get_sub_field('image');
-					$content = get_sub_field('content');
-					$link = get_sub_field('link');
+					$fpImage = get_sub_field('front_page_image');
+					$fpImageTitle = get_sub_field('front_page_image_title');
+					$fpImageLink = get_sub_field('front_page_link');
 
 					?>
 
 					<li class="swiper-slide">
 
-						<?php if( $link ): ?>
-							<a href="<?php echo $link; ?>">
+						<?php if( $fpImageLink ): ?>
+							<a href="<?php echo $fpImageLink; ?>">
 						<?php endif; ?>
 
-							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+							<img src="<?php echo $fpImage['url']; ?>" alt="<?php echo $fpImage['alt'] ?>" />
 
-						<?php if( $link ): ?>
+						<?php if( $fpImageLink ): ?>
 							</a>
 						<?php endif; ?>
 
-						<?php echo $content; ?>
-
+						<div class="front-page-project-title">
+							<?php echo $fpImageTitle; ?>
+						</div>
+			
 					</li>
 
 				<?php endwhile; ?>
@@ -52,7 +57,8 @@ get_header();
 				</ul>
 
 				<?php endif; ?>
-			
+				<div class="swiper-button-next"></div>
+    			<div class="swiper-button-prev"></div>
 			</div>
 
 		</main><!-- #main -->

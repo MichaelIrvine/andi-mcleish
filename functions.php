@@ -47,6 +47,7 @@ if ( ! function_exists( 'andi_mcleish_setup' ) ) :
 			'menu-1' => esc_html__( 'Primary', 'andi-mcleish' ),
 			'projects' => esc_html__( 'Projects', 'andi-mcleish' ),
 			'footer' => esc_html__('Footer Navigation', 'andi-mcleish'),
+			'social-media' => esc_html__('Social Media', 'andi-mcleish'),
 		) );
 
 		/*
@@ -118,29 +119,33 @@ function andi_mcleish_widgets_init() {
 }
 add_action( 'widgets_init', 'andi_mcleish_widgets_init' );
 
+
+
+
+// Adobe Fonts
+function adobe_font_stylesheet() {
+	wp_enqueue_style( 'adobe_font_poynterGotich', 'https://use.typekit.net/ybq4gcl.css');
+}
+
+add_action( 'wp_enqueue_scripts', 'adobe_font_stylesheet');
+
 /**
  * Enqueue scripts and styles.
  */
 function andi_mcleish_scripts() {
 	wp_enqueue_style( 'andi-mcleish-style', get_stylesheet_uri() );
-	// Adobe Fonts
-	wp_enqueue_style('amc-adobe-fonts-poynterGothic', "https://use.typekit.net/ybq4gcl.css");
-	// Swiper CSS
-	wp_enqueue_style('amc-swiper-style', get_stylesheet_directory_uri() . '/node_modules/swiper/dist/css/swiper.min.css');
-
-	wp_enqueue_script( 'andi-mcleish-main', get_stylesheet_directory_uri() . '/dist/bundle.js', true );
-
-	wp_enqueue_script( 'andi-mcleish-navigation', get_stylesheet_directory_uri() . '/js/navigation.js', true );
-
-	wp_enqueue_script( 'andi-mcleish-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', true );
-	// Swiper Min JS
-	wp_enqueue_script( 'amc-swiper-script', get_template_directory_uri() . '/node_modules/swiper/dist/js/swiper.min.js', false );
-
+	wp_enqueue_script( 'andi-mcleish-main', get_template_directory_uri() . '/dist/bundle.js', array(), '20190711', true );
+	wp_enqueue_script( 'andi-mcleish-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'andi-mcleish-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/node_modules/swiper/dist/css/swiper.min.css' );
+	wp_enqueue_script('swiper-js', get_template_directory_uri() . '/node_modules/swiper/dist/js/swiper.min.js', array('jquery'), '20190815', true);
+	wp_enqueue_script('swiper-js-init', get_template_directory_uri() . '/js/swiperInit.js', array('jquery'), '20190815', true);
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'andi_mcleish_scripts' );
+
 
 
 

@@ -4,6 +4,7 @@
   "description": "Portfolio for Andi McLeish",
   "main": "index.js",
   "dependencies": {
+    "imagesloaded": "^4.1.4",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "slick-carousel": "^1.8.1",
