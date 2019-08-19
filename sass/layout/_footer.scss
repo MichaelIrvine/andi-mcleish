@@ -1,0 +1,31 @@
+.site-footer {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2.5em;
+
+    .footer_col-01 {
+        margin-right: 10vw;
+
+        .footer_col-01-title {
+            text-decoration: underline;
+            font-weight: 300;
+        }
+
+        .footer-navigation_main a, .footer-navigation_social a {
+            font-weight: 300;
+        }
+    }
+
+    .footer_col-02 {
+
+        .footer_col-02-title {
+            text-decoration: underline;
+            font-weight: 300;
+        }
+
+        p {
+            font-weight: 300;
+        }
+    }
+
+}

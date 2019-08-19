@@ -1,0 +1,21 @@
+.swiper-container {
+    height: 80vh;
+    
+    .swiper-slide {
+        width: 60vw;
+    }
+
+}
+
+.swiper-button-next, .swiper-button-prev {
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: none;
+    background-image: none;
+
+    border: 1px solid red;
+}

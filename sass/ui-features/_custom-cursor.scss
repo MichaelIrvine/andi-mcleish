@@ -1,0 +1,41 @@
+#cursor {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    mix-blend-mode: difference;
+
+    z-index: 999;
+
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        transform: translate(-50%, -50%);
+        border: 1px solid black;
+        border-radius: 50%;
+        background-color: pink;
+        transition: width 500ms ease 0s, height 500ms ease 0s;
+        
+    }
+}
+
+#cursor.cursor--hidden::after {
+    height: 0;
+    width: 0;
+}
+
+#cursor.cursor--gone::after {
+    border: 0;
+}
+
+#cursor.cursor--active::after {
+    height: 32px;  
+    width: 32px;
+    
+}
