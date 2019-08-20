@@ -2,20 +2,26 @@
     height: 80vh;
     
     .swiper-slide {
-        width: 60vw;
+        width: 65vw;
     }
 
 }
 
 .swiper-button-next, .swiper-button-prev {
     position: absolute;
-    top: 0;
-    width: 20%;
-    height: 100%;
+    top: 0 !important;
+    width: 20% !important;
+    height: 100% !important;
     margin-top: -22px;
     z-index: 10;
-    cursor: none;
-    background-image: none;
+    cursor: none !important;
+    background-image: none !important;
+}
 
-    border: 1px solid red;
+.swiper-button-next:before {
+    content: "Next";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
 }

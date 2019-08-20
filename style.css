@@ -982,10 +982,6 @@ object {
 .site-main_front-page {
   margin-top: 5vh;
 }
-.site-main_front-page .swiper-spacer {
-  display: block;
-  width: 50vw;
-}
 .site-main_front-page .front-page-project-title {
   display: none;
   position: absolute;
@@ -1037,19 +1033,26 @@ object {
   height: 80vh;
 }
 .swiper-container .swiper-slide {
-  width: 60vw;
+  width: 65vw;
 }
 
 .swiper-button-next, .swiper-button-prev {
   position: absolute;
-  top: 0;
-  width: 20%;
-  height: 100%;
+  top: 0 !important;
+  width: 20% !important;
+  height: 100% !important;
   margin-top: -22px;
   z-index: 10;
-  cursor: none;
-  background-image: none;
-  border: 1px solid red;
+  cursor: none !important;
+  background-image: none !important;
+}
+
+.swiper-button-next:before {
+  content: "Next";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
