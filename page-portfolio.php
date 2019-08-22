@@ -15,8 +15,7 @@ get_header();
     <main id="main_portfolio" class="portfolio-main">
         <?php
 			$tax_terms = get_terms('project_types');
-			$images_array = array();
-			var_dump($images_array);
+			
 		?>
         <div class="project-list-container">
 			<ul class="portfolio-list-container">
@@ -24,9 +23,7 @@ get_header();
 				foreach($tax_terms as $tax_term) : 
 				$term_link = get_term_link( $tax_term );
 				$term_image = get_field('project_type_feature_image', $tax_term);
-				$size = 'full';
-				array_push($images_array, $term_image);
-				
+				$size = 'full';				
 				?>
 
             
@@ -34,7 +31,10 @@ get_header();
 			
 			
             <?php endforeach;?>
-			<img class="portfolio-img" data-portfolio-image="<?php echo $tax_term->name; ?>" src="<?php echo $term_image['url']; ?>" alt="<?php echo $term_image['alt']; ?>" />	
+			<!-- I NEED ALL THE IMAGES HERE!! -->
+			<div class="image-container">
+				<img class="portfolio-img" data-portfolio-image="<?php echo $tax_term->name; ?>" src="<?php echo $term_image['url']; ?>" alt="<?php echo $term_image['alt']; ?>" />	
+			</div>
 			</ul> <!-- End of .portfolio-list-container -->
         </div> <!-- End Project List Container -->
 
