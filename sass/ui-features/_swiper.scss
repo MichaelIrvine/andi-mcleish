@@ -7,6 +7,18 @@
 
 }
 
+
+
+
+.swiper-slide {
+    opacity: 0.1;
+    transition: opacity 2s ease-in-out;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+}
+
 .swiper-button-next, .swiper-button-prev {
     position: absolute;
     top: 0 !important;

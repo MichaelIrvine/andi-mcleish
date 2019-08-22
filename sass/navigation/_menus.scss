@@ -1,107 +1,64 @@
+// Initial State for menu
 .main-navigation {
-	clear: both;
 	display: none;
-	float: left;
-	width: 100%;
+	transition: all 1s ease-in-out;
+}
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+.main-navigation.display {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255,255,255, 0.68);
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	align-items: center;
+	
+	.menu-menu-1-container {
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+		.menu {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			flex-direction: column;
+			text-align: center;	
+	
+			.menu-item {
 
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
+	
+				a {
+					font-size: 3em;
+					font-weight: 300;
+					font-style: italic;
+					color: #171717;
 				}
 			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
 		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-
-	li {
-		float: left;
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
 
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
+// Toggle Menu Buttons
+.main-menu-toggle {
+	position: fixed;
+	bottom: 2vh;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
+	height: 24px;
+	overflow: hidden;
+	z-index: 3;
 
-	.site-main & {
-		margin: 0 0 1.5em;
-		overflow: hidden;
-	}
+	background-color: rgba($color: #ffffff, $alpha: 0.45);
+	border-radius: 50px;
+	padding: 2px 20px 2px 20px;
 
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
+	.menu-toggle_open, .menu-toggle_close {
+		font-weight: 300;
 	}
 }

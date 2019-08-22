@@ -1,4 +1,12 @@
-button,
+button {
+	background-color: transparent;
+	border: none;
+
+	&:focus {
+		outline: none;
+	}
+}
+
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {

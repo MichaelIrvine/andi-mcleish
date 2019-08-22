@@ -1,4 +1,6 @@
-console.log("Website by Michael Irvine ;) ");
+console.log("Website by Michael Irvine ;)");
+import * as menuToggle from './MenuToggle';
+
 
 // 
 // 
@@ -8,7 +10,7 @@ console.log("Website by Michael Irvine ;) ");
 // Cursor Vaiables
 const mainCursor = document.querySelector("#cursor");
 const triggers = document.querySelectorAll("a");
-console.log(triggers);
+
 
 // Find mouse position and append #cursor div to cursor
 const makeCursor = function(e) {

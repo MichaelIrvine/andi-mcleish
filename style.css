@@ -398,7 +398,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin-bottom: 1.2em;
+  margin-bottom: 0;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 dfn, cite, em, i {
@@ -518,7 +522,14 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-button,
+button {
+  background-color: transparent;
+  border: none;
+}
+button:focus {
+  outline: none;
+}
+
 input[type=button],
 input[type=reset],
 input[type=submit] {
@@ -532,15 +543,12 @@ input[type=submit] {
   line-height: 1;
   padding: 0.6em 1em 0.4em;
 }
-button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
 input[type=submit]:hover {
   border-color: #ccc #bbb #aaa;
 }
-button:active, button:focus,
-input[type=button]:active,
-input[type=button]:focus,
+input[type=button]:active, input[type=button]:focus,
 input[type=reset]:active,
 input[type=reset]:focus,
 input[type=submit]:active,
@@ -623,80 +631,53 @@ a:hover, a:active {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  clear: both;
   display: none;
-  float: left;
-  width: 100%;
+  transition: all 1s ease-in-out;
 }
-.main-navigation ul {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-.main-navigation ul ul {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-  float: left;
-  position: absolute;
-  top: 100%;
-  left: -999em;
-  z-index: 99999;
-}
-.main-navigation ul ul ul {
-  left: -999em;
+
+.main-navigation.display {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
   top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.68);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-  left: 100%;
+.main-navigation.display .menu-menu-1-container .menu {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
 }
-.main-navigation ul ul a {
-  width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-  left: auto;
-}
-.main-navigation li {
-  float: left;
-  position: relative;
-}
-.main-navigation a {
-  display: block;
-  text-decoration: none;
-}
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
+.main-navigation.display .menu-menu-1-container .menu .menu-item a {
+  font-size: 3em;
+  font-weight: 300;
+  font-style: italic;
+  color: #171717;
 }
 
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .main-navigation ul {
-    display: block;
-  }
-}
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-  margin: 0 0 1.5em;
+.main-menu-toggle {
+  position: fixed;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  height: 24px;
   overflow: hidden;
+  z-index: 3;
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 50px;
+  padding: 2px 20px 2px 20px;
 }
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-  float: left;
-  width: 50%;
-}
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-  float: right;
-  text-align: right;
-  width: 50%;
+.main-menu-toggle .menu-toggle_open, .main-menu-toggle .menu-toggle_close {
+  font-weight: 300;
 }
 
 /*--------------------------------------------------------------
@@ -955,6 +936,9 @@ object {
   justify-content: center;
   padding: 1em;
 }
+.site-branding .custom-logo-link {
+  width: 150px;
+}
 
 .site-footer {
   display: flex;
@@ -979,9 +963,6 @@ object {
   font-weight: 300;
 }
 
-.site-main_front-page {
-  margin-top: 5vh;
-}
 .site-main_front-page .front-page-project-title {
   display: none;
   position: absolute;
@@ -999,7 +980,6 @@ object {
   width: 0;
   height: 0;
   pointer-events: none;
-  mix-blend-mode: difference;
   z-index: 999;
 }
 #cursor::after {
@@ -1009,9 +989,9 @@ object {
   width: 16px;
   height: 16px;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
   border-radius: 50%;
-  background-color: pink;
+  background-color: black;
+  opacity: 0.7;
   transition: width 500ms ease 0s, height 500ms ease 0s;
 }
 
@@ -1034,6 +1014,15 @@ object {
 }
 .swiper-container .swiper-slide {
   width: 65vw;
+}
+
+.swiper-slide {
+  opacity: 0.1;
+  transition: opacity 2s ease-in-out;
+}
+
+.swiper-slide-active {
+  opacity: 1;
 }
 
 .swiper-button-next, .swiper-button-prev {

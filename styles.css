@@ -83,8 +83,7 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -121,8 +120,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -228,9 +226,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -238,9 +236,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -249,9 +247,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -269,8 +267,7 @@ fieldset {
  *		`fieldset` elements in all browsers.
  */
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -302,10 +299,9 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type="checkbox"],
-[type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -314,8 +310,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -323,7 +319,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type="search"] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -333,7 +329,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type="search"]::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -402,7 +398,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin-bottom: 1.2em;
+  margin-bottom: 0;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 dfn, cite, em, i {
@@ -453,16 +453,14 @@ big {
 # Elements
 --------------------------------------------------------------*/
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
   /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -479,8 +477,7 @@ hr {
 
 ul, ol {
   margin: 0;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
+  padding-inline-start: 0;
 }
 
 ul {
@@ -530,9 +527,9 @@ button {
   border: none;
 }
 
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type=button],
+input[type=reset],
+input[type=submit] {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
   border-radius: 3px;
@@ -541,60 +538,57 @@ input[type="submit"] {
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 1;
-  padding: .6em 1em .4em;
+  padding: 0.6em 1em 0.4em;
 }
-
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type=button]:hover,
+input[type=reset]:hover,
+input[type=submit]:hover {
   border-color: #ccc #bbb #aaa;
 }
-
-input[type="button"]:active, input[type="button"]:focus,
-input[type="reset"]:active,
-input[type="reset"]:focus,
-input[type="submit"]:active,
-input[type="submit"]:focus {
+input[type=button]:active, input[type=button]:focus,
+input[type=reset]:active,
+input[type=reset]:focus,
+input[type=submit]:active,
+input[type=submit]:focus {
   border-color: #aaa #bbb #bbb;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+input[type=search],
+input[type=number],
+input[type=tel],
+input[type=range],
+input[type=date],
+input[type=month],
+input[type=week],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+input[type=color],
 textarea {
   color: #666;
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px;
 }
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="range"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="week"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="color"]:focus,
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=number]:focus,
+input[type=tel]:focus,
+input[type=range]:focus,
+input[type=date]:focus,
+input[type=month]:focus,
+input[type=week]:focus,
+input[type=time]:focus,
+input[type=datetime]:focus,
+input[type=datetime-local]:focus,
+input[type=color]:focus,
 textarea:focus {
   color: #111;
 }
@@ -617,19 +611,15 @@ a {
   text-decoration: none;
   color: black;
 }
-
 a:visited {
   color: black;
 }
-
 a:hover, a:focus, a:active {
   color: black;
 }
-
 a:focus {
   outline: thin dotted;
 }
-
 a:hover, a:active {
   outline: 0;
 }
@@ -649,37 +639,18 @@ a:hover, a:active {
   left: 0;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.65);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 .main-navigation.display .menu-menu-1-container .menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
   text-align: center;
 }
-
 .main-navigation.display .menu-menu-1-container .menu .menu-item a {
   font-size: 3em;
   font-weight: 300;
@@ -688,22 +659,16 @@ a:hover, a:active {
 }
 
 .main-menu-toggle {
-  position: fixed;
+  position: absolute;
   bottom: 2vh;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  transform: translateX(-50%);
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: 24px;
   overflow: hidden;
   z-index: 3;
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: white;
   border-radius: 50px;
   padding: 2px 20px 2px 20px;
 }
@@ -715,8 +680,7 @@ a:hover, a:active {
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -726,15 +690,12 @@ a:hover, a:active {
   word-wrap: normal !important;
   /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
-
 .screen-reader-text:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
-  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   clip: auto !important;
-  -webkit-clip-path: none;
-          clip-path: none;
+  clip-path: none;
   color: #21759b;
   display: block;
   font-size: 14px;
@@ -814,7 +775,6 @@ a:hover, a:active {
   margin: 0 0 1.5em;
   /* Make sure select elements fit in widgets. */
 }
-
 .widget select {
   max-width: 100%;
 }
@@ -906,13 +866,11 @@ object {
   margin-bottom: 1.5em;
   max-width: 100%;
 }
-
-.wp-caption img[class*="wp-image-"] {
+.wp-caption img[class*=wp-image-] {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 .wp-caption .wp-caption-text {
   margin: 0.8075em 0;
 }
@@ -934,35 +892,27 @@ object {
   vertical-align: top;
   width: 100%;
 }
-
 .gallery-columns-2 .gallery-item {
   max-width: 50%;
 }
-
 .gallery-columns-3 .gallery-item {
   max-width: 33.33%;
 }
-
 .gallery-columns-4 .gallery-item {
   max-width: 25%;
 }
-
 .gallery-columns-5 .gallery-item {
   max-width: 20%;
 }
-
 .gallery-columns-6 .gallery-item {
   max-width: 16.66%;
 }
-
 .gallery-columns-7 .gallery-item {
   max-width: 14.28%;
 }
-
 .gallery-columns-8 .gallery-item {
   max-width: 12.5%;
 }
-
 .gallery-columns-9 .gallery-item {
   max-width: 11.11%;
 }
@@ -975,47 +925,33 @@ object {
 # UI Features
 --------------------------------------------------------------*/
 .site-branding {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding: 1em;
 }
-
 .site-branding .custom-logo-link {
   width: 165px;
 }
 
 .site-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   padding: 2.5em;
 }
-
 .site-footer .footer_col-01 {
   margin-right: 10vw;
 }
-
 .site-footer .footer_col-01 .footer_col-01-title {
   text-decoration: underline;
   font-weight: 300;
 }
-
 .site-footer .footer_col-01 .footer-navigation_main a, .site-footer .footer_col-01 .footer-navigation_social a {
   font-weight: 300;
 }
-
 .site-footer .footer_col-02 .footer_col-02-title {
   text-decoration: underline;
   font-weight: 300;
 }
-
 .site-footer .footer_col-02 p {
   font-weight: 300;
 }
@@ -1023,7 +959,6 @@ object {
 .site-main_front-page {
   margin-top: 5vh;
 }
-
 .site-main_front-page .front-page-project-title {
   display: none;
   position: absolute;
@@ -1043,19 +978,16 @@ object {
   pointer-events: none;
   z-index: 999;
 }
-
 #cursor::after {
   content: "";
   display: block;
   position: absolute;
   width: 16px;
   height: 16px;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   background-color: black;
   opacity: 0.7;
-  -webkit-transition: width 500ms ease 0s, height 500ms ease 0s;
   transition: width 500ms ease 0s, height 500ms ease 0s;
 }
 
@@ -1076,7 +1008,6 @@ object {
 .swiper-container {
   height: 80vh;
 }
-
 .swiper-container .swiper-slide {
   width: 65vw;
 }
@@ -1099,4 +1030,5 @@ object {
   top: 50%;
   left: 0;
 }
-/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=styles.css.map */

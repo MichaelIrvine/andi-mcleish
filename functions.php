@@ -135,7 +135,7 @@ add_action( 'wp_enqueue_scripts', 'adobe_font_stylesheet');
 function andi_mcleish_scripts() {
 	wp_enqueue_style( 'andi-mcleish-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'andi-mcleish-main', get_template_directory_uri() . '/dist/bundle.js', array(), '20190711', true );
-	wp_enqueue_script( 'andi-mcleish-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	// wp_enqueue_script( 'andi-mcleish-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'andi-mcleish-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	wp_enqueue_style('swiper-css', get_stylesheet_directory_uri() . '/node_modules/swiper/dist/css/swiper.min.css' );
 	wp_enqueue_script('swiper-js', get_template_directory_uri() . '/node_modules/swiper/dist/js/swiper.min.js', array('jquery'), '20190815', true);
@@ -242,17 +242,12 @@ function amc_register_custom_post_types() {
         'menu_position'      => 20,
         'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
 		'menu_icon'          => 'dashicons-migrate',
-		'taxonomies'          => array('project_types'),
+		'taxonomies'          => array('projects'),
     );
 	register_post_type( 'projects', $args );
  }
  add_action( 'init', 'amc_register_custom_post_types' );
- /* Flush */
-     function amc_rewrite_flush() {
-        amc_register_custom_post_types();
-        flush_rewrite_rules();
-    }
-	register_activation_hook( __FILE__, 'amc_rewrite_flush' );
+
 
  /**
  * Andi McLeish Register Custom Taxonomy
@@ -294,22 +289,10 @@ function project_types() {
 add_action( 'init', 'project_types', 0 );
 
 
- /**
- * Function to make the custom tax/post display in correct order
- */
-function set_the_terms_in_order ( $terms, $id, $taxonomy ) {
-	$terms = wp_cache_get( $id, "{$taxonomy}_relationships_sorted" );
-	if ( false === $terms ) {
-		$terms = wp_get_object_terms( $id, $taxonomy, array( 'orderby' => 'term_order' ) );
-		wp_cache_add($id, $terms, $taxonomy . '_relationships_sorted');
-	}
-	return $terms;
-	}
-	add_filter( 'get_the_terms', 'set_the_terms_in_order' , 10, 4 );
-	function do_the_terms_in_order () {
-		global $wp_taxonomies;  //fixed missing semicolon
-		// the following relates to tags, but you can add more lines like this for any taxonomy
-		$wp_taxonomies['post_tag']->sort = true;
-		$wp_taxonomies['post_tag']->args = array( 'orderby' => 'term_order' );    
-	}
-	add_action( 'init', 'do_the_terms_in_order');
+ /* Flush */
+ function amc_rewrite_flush() {
+	amc_register_custom_post_types();
+	flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'amc_rewrite_flush' );
+

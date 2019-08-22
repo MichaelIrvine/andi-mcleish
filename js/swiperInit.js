@@ -10,7 +10,7 @@ const fpSlider = function() {
 		direction: 'horizontal',
 		loop: false,
 		slidesPerView: 'auto',
-		spaceBetween: 30,
+		spaceBetween: 15,
 		parallax: true,
 		freeMode: true,
 		freeModeSticky: false,
@@ -21,6 +21,7 @@ const fpSlider = function() {
 		// 	releaseOnEdges: true,
 		// },
 		autoplay: false,
+		speed: 550,
 		sensitivity: 1,
 		keyboard: {
 			enabled: true,

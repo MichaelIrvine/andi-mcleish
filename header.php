@@ -32,7 +32,6 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'andi-mcleish' ); ?></button>
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
@@ -40,6 +39,11 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+
+		<a class="main-menu-toggle">
+			<button class="menu-toggle_open" >MENU</button>
+			<button class="menu-toggle_close hidden" >CLOSE</button>
+		</a>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
