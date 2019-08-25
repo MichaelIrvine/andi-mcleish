@@ -1,10 +1,6 @@
 // Initial State for menu
-.main-navigation {
-	display: none;
-	transition: all 1s ease-in-out;
-}
 
-.main-navigation.display {
+.main-navigation {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -16,6 +12,10 @@
 	flex-direction: column;
     justify-content: center;
 	align-items: center;
+
+	visibility: hidden;
+
+	transition: all 1s ease-in-out;
 	
 	.menu-menu-1-container {
 
@@ -60,5 +60,16 @@
 
 	.menu-toggle_open, .menu-toggle_close {
 		font-weight: 300;
+		transition: all 800ms ease-in-out;
 	}
+
+	
+}
+
+.menu-toggle_open.move, .menu-toggle_close.move {
+	transform: translateY(100px);
+}
+
+#primary-menu > .menu-item {
+	opacity: 0;
 }

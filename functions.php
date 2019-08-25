@@ -129,6 +129,15 @@ function adobe_font_stylesheet() {
 
 add_action( 'wp_enqueue_scripts', 'adobe_font_stylesheet');
 
+// GSAP CDN
+function gsap_script() {
+	wp_enqueue_script( 'gsapTweenMaxCdn', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js', array(), '1.1', true);
+	wp_enqueue_script( 'gsapTimeLineMaxCdn', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js', array(), '1.1', true);
+
+}
+
+add_action( 'wp_enqueue_scripts', 'gsap_script');
+
 /**
  * Enqueue scripts and styles.
  */
@@ -143,8 +152,11 @@ function andi_mcleish_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
 }
 add_action( 'wp_enqueue_scripts', 'andi_mcleish_scripts' );
+
+
 
 
 

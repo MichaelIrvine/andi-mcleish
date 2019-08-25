@@ -403,6 +403,8 @@ p {
   margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  font-weight: 300;
+  font-family: poynter-gothic-text, sans-serif;
 }
 
 dfn, cite, em, i {
@@ -631,11 +633,6 @@ a:hover, a:active {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  display: none;
-  transition: all 1s ease-in-out;
-}
-
-.main-navigation.display {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -647,15 +644,17 @@ a:hover, a:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  transition: all 1s ease-in-out;
 }
-.main-navigation.display .menu-menu-1-container .menu {
+.main-navigation .menu-menu-1-container .menu {
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   text-align: center;
 }
-.main-navigation.display .menu-menu-1-container .menu .menu-item a {
+.main-navigation .menu-menu-1-container .menu .menu-item a {
   font-size: 3em;
   font-weight: 300;
   font-style: italic;
@@ -678,6 +677,15 @@ a:hover, a:active {
 }
 .main-menu-toggle .menu-toggle_open, .main-menu-toggle .menu-toggle_close {
   font-weight: 300;
+  transition: all 800ms ease-in-out;
+}
+
+.menu-toggle_open.move, .menu-toggle_close.move {
+  transform: translateY(100px);
+}
+
+#primary-menu > .menu-item {
+  opacity: 0;
 }
 
 /*--------------------------------------------------------------
@@ -972,10 +980,23 @@ object {
 
 .portfolio-feature-image {
   width: 700px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+}
+
+.bio-main {
+  display: flex;
+}
+@media screen and (max-width: 650px) {
+  .bio-main {
+    flex-direction: column;
+  }
+}
+.bio-main .bio-col_01 .bio-text-container {
+  margin-top: 10vh;
+  padding: 2.5em;
+}
+.bio-main .bio-col_02 .bio-image-container {
+  padding: 2.5em;
+  width: 500px;
 }
 
 /*--------------------------------------------------------------

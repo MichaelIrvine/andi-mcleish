@@ -1,9 +1,15 @@
 p {
+	// Reset
 	margin-bottom: 0;
 	margin-block-start: 0px;
     margin-block-end: 0px;
     margin-inline-start: 0px;
-    margin-inline-end: 0px;
+	margin-inline-end: 0px;
+	
+	// Styles
+	font-weight: 300;
+	font-family: $font__main;
+
 }
 
 dfn, cite, em, i {

@@ -1,0 +1,23 @@
+.bio-main {
+    display: flex;
+
+    // --set max width later
+    @media screen and (max-width: 650px){
+        flex-direction: column;
+    }
+
+    .bio-col_01 {
+        
+        .bio-text-container {
+            margin-top: 10vh;
+            padding: 2.5em;
+        }
+    }
+
+    .bio-col_02 {
+        .bio-image-container {
+            padding: 2.5em;
+            width: 500px;
+        }
+    }
+}
