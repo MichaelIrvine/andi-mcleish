@@ -978,8 +978,49 @@ object {
   left: 0;
 }
 
+.portfolio-main .portfolio-list-container {
+  margin-bottom: 5vh;
+}
+.portfolio-main .portfolio-list-container .portfolio-list {
+  display: flex;
+  justify-content: center;
+}
+.portfolio-main .portfolio-list-container .portfolio-list .project-list-item {
+  padding: 0.5em;
+}
+.portfolio-main .portfolio-list-container .portfolio-list .project-list-item a {
+  font-size: 1.3em;
+  font-weight: 300;
+  color: #aaaaaa;
+  text-transform: uppercase;
+}
+.portfolio-main .portfolio-image-container {
+  display: flex;
+  justify-content: center;
+}
+.portfolio-main .portfolio-image-container .portfolio-images {
+  max-width: 800px;
+  position: relative;
+  height: 75vh;
+  width: 100%;
+}
+.portfolio-main .portfolio-image-container .portfolio-images .portfolio-image-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .portfolio-feature-image {
-  width: 700px;
+  opacity: 0;
+  transition: all 450ms ease-in-out;
+}
+
+.portfolio-feature-image.display-image {
+  opacity: 1;
+}
+
+.portfolio-image-item:first-of-type > img {
+  opacity: 1;
 }
 
 .bio-main {
