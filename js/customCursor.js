@@ -2,7 +2,8 @@
 export const customCursor = (function(){
 // Cursor Vaiables
 const mainCursor = document.querySelector("#cursor");
-const triggers = document.querySelectorAll("a");
+const triggers = document.querySelectorAll("a, button");
+
 
 
 // Find mouse position and append #cursor div to cursor
@@ -46,6 +47,15 @@ const cursorResize = function(e) {
   mainCursor.classList.remove("cursor--active");
 };
 
+const cursorPulse = function(){
+  mainCursor.classList.add('pulse');
+  
+  setTimeout(function(){ mainCursor.classList.remove('pulse'); }, 70);
+  
+}
+
+
+
 window.addEventListener("mousemove", makeCursor);
 document.addEventListener("mouseenter", mouseOnScreen);
 document.addEventListener("mouseleave", mouseOffScreen);
@@ -53,6 +63,8 @@ triggers.forEach(trigger => trigger.addEventListener("mouseenter", cursorGrow));
 triggers.forEach(trigger =>
   trigger.addEventListener("mouseleave", cursorResize)
 );
+triggers.forEach(trigger => trigger.addEventListener('click', cursorPulse));
+
 })();
 
 

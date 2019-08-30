@@ -18,53 +18,31 @@ get_header();
 	<div id="primary_front-page" class="content-area_front-page ">
 		<main id="main_front-page" class="site-main_front-page">
 		
-		<div class="front-page-gallery swiper-container">
-			
-			<?php if( have_rows('front_page_gallery') ): ?>
+		<?php
+		$fpImages = get_field('front_page_gallery');
 
+		if( $fpImages ): ?>
+			<div class="front-page-gallery swiper-container">
 				<ul class="front-page-slides swiper-wrapper">
-				
-
-				<?php while( have_rows('front_page_gallery') ): the_row(); 
-
-					// vars
-					$fpImage = get_sub_field('front_page_image');
-					$fpImageTitle = get_sub_field('front_page_image_title');
-					$fpImageLink = get_sub_field('front_page_link');
-
-					?>
-
-					<li class="swiper-slide">
-
-						<?php if( $fpImageLink ): ?>
-							<a href="<?php echo $fpImageLink; ?>">
-						<?php endif; ?>
-
-							<img src="<?php echo $fpImage['url']; ?>" alt="<?php echo $fpImage['alt'] ?>" />
-
-						<?php if( $fpImageLink ): ?>
-							</a>
-						<?php endif; ?>
-
-						<div class="front-page-project-title">
-							<?php echo $fpImageTitle; ?>
-						</div>
-			
-					</li>
-
-				<?php endwhile; ?>
-
+					<?php foreach( $fpImages as $image ): ?>
+						<li class="swiper-slide">
+							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+							<p><?php echo $image['caption']; ?></p>
+						</li>
+					<?php endforeach; ?>
 				</ul>
-
-				<?php endif; ?>
 				<div class="swiper-button-next"></div>
     			<div class="swiper-button-prev"></div>
 			</div>
+		<?php endif; ?>	
+			
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
 get_footer();
+
+
 
 

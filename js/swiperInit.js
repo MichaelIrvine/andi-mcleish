@@ -16,12 +16,8 @@ const fpSlider = function() {
 		freeModeSticky: false,
 		freeModeMomentum: true,
 		preventInteractionOnTransition: true,
-		// mousewheel: {
-		// 	enabled: true,
-		// 	releaseOnEdges: true,
-		// },
 		autoplay: false,
-		speed: 550,
+		speed: 700,
 		sensitivity: 1,
 		keyboard: {
 			enabled: true,
@@ -43,3 +39,85 @@ const fpSlider = function() {
 
 fpSlider();
 };
+
+
+if(body.classList.contains('archive')){
+
+	const portfolioMainSlider = function() {
+	
+		const portfolioSwiper = new Swiper('.swiper-container_portfolio', {
+			direction: 'horizontal',
+			loop: false,
+			slidesPerView: 'auto',
+			spaceBetween: 15,
+			parallax: true,
+			freeMode: true,
+			freeModeSticky: false,
+			freeModeMomentum: true,
+			preventInteractionOnTransition: true,
+			autoplay: false,
+			speed: 700,
+			sensitivity: 1,
+			keyboard: {
+				enabled: true,
+			},
+			watchSlidesVisibility: true,
+			preloadImages: true,
+			updateOnImagesReady: true,
+			centeredSlides: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			  },
+			mousewheel: {
+				enabled: true,
+				releaseOnEdges: true,
+			},
+		
+		});
+	}
+
+	portfolioMainSlider();
+};
+
+
+if(body.classList.contains('single-projects')){
+	console.log("single-projects y");
+	
+	const singleProjectSwiper = function() {
+	
+		const singleProjectSwiper = new Swiper('.swiper-container_single-project', {
+			direction: 'horizontal',
+			loop: false,
+			slidesPerView: 'auto',
+			spaceBetween: 15,
+			parallax: true,
+			freeMode: true,
+			freeModeSticky: false,
+			freeModeMomentum: true,
+			preventInteractionOnTransition: true,
+			autoplay: false,
+			speed: 700,
+			sensitivity: 1,
+			keyboard: {
+				enabled: true,
+			},
+			watchSlidesVisibility: true,
+			preloadImages: true,
+			updateOnImagesReady: true,
+			centeredSlides: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			  },
+			mousewheel: {
+				enabled: true,
+				releaseOnEdges: true,
+			},
+		
+		});
+	}
+
+	singleProjectSwiper();
+};
+

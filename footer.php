@@ -44,9 +44,6 @@
 		
 	</div>
 
-<div class="preloader"></div>
-<div id="cursor" class="cursor--ready"></div>
-
 </footer><!-- #colophon -->
 </div><!-- #page -->
 

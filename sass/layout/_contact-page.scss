@@ -1,0 +1,27 @@
+.contact-main {
+    display: flex;
+    flex-direction: column;
+
+    .contact-col_01 {
+        display: flex;
+        justify-content: flex-start;
+
+        .contact-details-container {
+            margin: 1.7em;
+            padding: 1em;
+
+            p {
+                font-size: 1.3em;
+            }
+        }
+    }
+
+    .contact-col_02 {
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            width: 75vw;
+        }
+    }
+}

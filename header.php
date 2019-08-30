@@ -44,6 +44,8 @@
 			<button class="menu-toggle_open" >MENU</button>
 			<button class="menu-toggle_close hidden" >CLOSE</button>
 		</a>
+		<div class="preloader"></div>
+		<div id="cursor" class="cursor--ready"></div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

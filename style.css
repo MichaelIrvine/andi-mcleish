@@ -40,7 +40,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+
+
 --------------------------------------------------------------*/
+body, html, a, button {
+  cursor: none;
+}
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -394,7 +400,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 p {
@@ -516,6 +522,10 @@ figure {
   /* Extra wide images within figure tags don't overflow the content area. */
 }
 
+video {
+  outline: none;
+}
+
 table {
   margin: 0 0 1.5em;
   width: 100%;
@@ -614,16 +624,16 @@ textarea {
 --------------------------------------------------------------*/
 a {
   text-decoration: none;
-  color: black;
+  color: #404040;
 }
 a:visited {
-  color: black;
+  color: #404040;
 }
 a:hover, a:focus, a:active {
-  color: black;
+  color: #404040;
 }
 a:focus {
-  outline: thin dotted;
+  outline: none;
 }
 a:hover, a:active {
   outline: 0;
@@ -644,6 +654,7 @@ a:hover, a:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0;
   visibility: hidden;
   transition: all 1s ease-in-out;
 }
@@ -654,11 +665,21 @@ a:hover, a:active {
   flex-direction: column;
   text-align: center;
 }
+.main-navigation .menu-menu-1-container .menu .menu-item {
+  transform: translateY(3px);
+}
 .main-navigation .menu-menu-1-container .menu .menu-item a {
   font-size: 3em;
   font-weight: 300;
-  font-style: italic;
   color: #171717;
+  text-transform: uppercase;
+  transition: color 500ms ease-in-out;
+}
+.main-navigation .menu-menu-1-container .menu .menu-item a:hover {
+  color: #3c6e71;
+}
+.main-navigation .menu-menu-1-container .menu .menu-item a:focus {
+  color: #321325;
 }
 
 .main-menu-toggle {
@@ -675,17 +696,28 @@ a:hover, a:active {
   border-radius: 50px;
   padding: 2px 20px 2px 20px;
 }
+@media screen and (max-width: 768px) {
+  .main-menu-toggle {
+    background-color: white;
+    border: 1px solid #171717;
+  }
+}
 .main-menu-toggle .menu-toggle_open, .main-menu-toggle .menu-toggle_close {
   font-weight: 300;
   transition: all 800ms ease-in-out;
 }
 
-.menu-toggle_open.move, .menu-toggle_close.move {
-  transform: translateY(100px);
-}
-
 #primary-menu > .menu-item {
   opacity: 0;
+}
+
+.back-button {
+  font-weight: 300;
+  font-size: 1.2em;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------
@@ -945,7 +977,7 @@ object {
   padding: 1em;
 }
 .site-branding .custom-logo-link {
-  width: 150px;
+  width: 125px;
 }
 
 .site-footer {
@@ -978,6 +1010,87 @@ object {
   left: 0;
 }
 
+.bio-main {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5vh;
+}
+@media screen and (max-width: 768px) {
+  .bio-main {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.bio-main .bio-col_01 {
+  width: 47%;
+  opacity: 0;
+}
+@media screen and (max-width: 768px) {
+  .bio-main .bio-col_01 {
+    width: 100%;
+  }
+}
+.bio-main .bio-col_01 .bio-image-container {
+  display: flex;
+  justify-content: center;
+  padding: 1em 1em 8em 8em;
+}
+@media screen and (max-width: 768px) {
+  .bio-main .bio-col_01 .bio-image-container {
+    padding: 1em 8em;
+  }
+}
+.bio-main .bio-col_01 .bio-image-container img {
+  min-width: 300px;
+  max-width: 600px;
+}
+.bio-main .bio-col_02 {
+  width: 47%;
+  opacity: 0;
+}
+@media screen and (max-width: 768px) {
+  .bio-main .bio-col_02 {
+    width: 100%;
+  }
+}
+.bio-main .bio-col_02 .bio-text-container {
+  margin-top: 10vh;
+  padding: 1.5em 2.5em 1.5em 1.5em;
+}
+@media screen and (max-width: 768px) {
+  .bio-main .bio-col_02 .bio-text-container {
+    margin-top: 2vh;
+    padding: 1.75em;
+  }
+}
+.bio-main .bio-col_02 .bio-text-container p {
+  font-size: 1.3em;
+  color: black;
+}
+
+.contact-main {
+  display: flex;
+  flex-direction: column;
+}
+.contact-main .contact-col_01 {
+  display: flex;
+  justify-content: flex-start;
+}
+.contact-main .contact-col_01 .contact-details-container {
+  margin: 1.7em;
+  padding: 1em;
+}
+.contact-main .contact-col_01 .contact-details-container p {
+  font-size: 1.3em;
+}
+.contact-main .contact-col_02 {
+  display: flex;
+  justify-content: flex-end;
+}
+.contact-main .contact-col_02 img {
+  width: 75vw;
+}
+
 .portfolio-main .portfolio-list-container {
   margin-bottom: 5vh;
 }
@@ -991,8 +1104,12 @@ object {
 .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a {
   font-size: 1.3em;
   font-weight: 300;
-  color: #aaaaaa;
+  color: #d9d9d9;
   text-transform: uppercase;
+  transition: color 500ms ease-in-out;
+}
+.portfolio-main .portfolio-list-container .portfolio-list .project-list-item a:hover {
+  color: #321325;
 }
 .portfolio-main .portfolio-image-container {
   display: flex;
@@ -1023,21 +1140,8 @@ object {
   opacity: 1;
 }
 
-.bio-main {
-  display: flex;
-}
-@media screen and (max-width: 650px) {
-  .bio-main {
-    flex-direction: column;
-  }
-}
-.bio-main .bio-col_01 .bio-text-container {
-  margin-top: 10vh;
-  padding: 2.5em;
-}
-.bio-main .bio-col_02 .bio-image-container {
-  padding: 2.5em;
-  width: 500px;
+.projects-main .project-title {
+  text-align: right;
 }
 
 /*--------------------------------------------------------------
@@ -1060,8 +1164,8 @@ object {
   height: 16px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: black;
-  opacity: 0.7;
+  background-color: #3c6e71;
+  opacity: 0.8;
   transition: width 500ms ease 0s, height 500ms ease 0s;
 }
 
@@ -1077,18 +1181,29 @@ object {
 #cursor.cursor--active::after {
   height: 32px;
   width: 32px;
+  background-color: transparent;
+  border: 1px solid;
+}
+
+#cursor.pulse {
+  transform: scale(1.2);
 }
 
 .swiper-container {
-  height: 80vh;
+  height: 90vh;
 }
 .swiper-container .swiper-slide {
   width: 65vw;
 }
 
+.swiper-wrapper {
+  opacity: 0;
+  transition: opacity 800ms ease-in;
+  height: 100vh;
+}
+
 .swiper-slide {
   opacity: 0.1;
-  transition: opacity 2s ease-in-out;
 }
 
 .swiper-slide-active {
@@ -1106,12 +1221,18 @@ object {
   background-image: none !important;
 }
 
-.swiper-button-next:before {
-  content: "Next";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
+.swiper-container_portfolio .swiper-wrapper .swiper-slide_portfolio {
+  width: 60vw;
+  opacity: 1;
+}
+
+.swiper-container_single-project .swiper-wrapper .swiper-slide_single-project {
+  width: 65vw;
+  opacity: 1;
+}
+
+.visually-hide-footer {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

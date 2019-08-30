@@ -13,8 +13,14 @@
                 a {
                 font-size: 1.3em;
                 font-weight: 300;
-                color: #aaaaaa;
+                color: #d9d9d9;
                 text-transform: uppercase;
+                transition: color 500ms ease-in-out;
+
+                &:hover {
+                    color: #321325;
+                }
+
                 }
                 
             }

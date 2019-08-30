@@ -7,24 +7,24 @@ export const menuToggle = (function(){
     const menuClose = document.querySelector('.menu-toggle_close');
 
     // GSAP Animation
-    const tl = new TimelineMax({
+    const openMenuTl = new TimelineMax({
         paused: true
       });
     
     
-    tl.to(menu, 0, {visibility: "visible", ease: Power4.easeOut} );
-    tl.to(menuOpen, 0.1, {y: -30, ease: Power4.easeOut}, "-=0.25");
-    tl.to(menuClose,0.1,{y: -22, ease: Power4.easeOut});
-    tl.staggerTo(menuItems, 0.7, {opacity: 1, ease: Power4.easeIn}, 0.09)
-    tl.reversed(true);
+    openMenuTl.to(menu, 0, {visibility: "visible", ease: Power4.easeOut} );
+    openMenuTl.to(menu, 0.1, {opacity: 1, ease: Power4.easeOut} );
+    openMenuTl.to(menuOpen, 0.1, {y: -30, ease: Power4.easeOut}, "-=0.25");
+    openMenuTl.to(menuClose,0.1,{y: -22, ease: Power4.easeOut});
+    openMenuTl.staggerTo(menuItems, 0.5, {opacity: 1, y: 0, ease: Power2.easeInOut, delay: 0.5}, 0.3)
+    openMenuTl.reversed(true);
+
     
     menuOpen.addEventListener('click', function(){
-        tl.play();
-        console.log("clicked");
-        
+        openMenuTl.play();        
     });
     menuClose.addEventListener('click', function(){
-        tl.reverse();
+        openMenuTl.reverse().timeScale(3);
     });
 
 

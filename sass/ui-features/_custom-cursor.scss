@@ -6,9 +6,16 @@
     width: 0;
     height: 0;
     pointer-events: none;
-   
-
     z-index: 999;
+
+    
+
+    // Switch this on for mobile devices
+    // @media screen and (max-width: 768px){
+    //     display: none;
+    //     top: 0;
+    //     left: 0;
+    // }
 
     &::after{
         content: "";
@@ -18,10 +25,10 @@
         height: 16px;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        background-color: black;
-        opacity: 0.7;
+        background-color: #3c6e71;
+        opacity: 0.8;
         transition: width 500ms ease 0s, height 500ms ease 0s;
-        
+       
     }
 }
 
@@ -37,5 +44,10 @@
 #cursor.cursor--active::after {
     height: 32px;  
     width: 32px;
-    
+    background-color: transparent;
+    border: 1px solid; 
+}
+
+#cursor.pulse {
+    transform: scale(1.2)
 }

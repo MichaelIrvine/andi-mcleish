@@ -1,6 +1,7 @@
 .swiper-container {
-    height: 80vh;
-    
+    height:90vh;
+
+
     .swiper-slide {
         width: 65vw;
     }
@@ -8,11 +9,16 @@
 }
 
 
+.swiper-wrapper {
+    opacity: 0;
+    transition: opacity 800ms ease-in;
+    height: 100vh;
 
+}
 
 .swiper-slide {
     opacity: 0.1;
-    transition: opacity 2s ease-in-out;
+   
 }
 
 .swiper-slide-active {
@@ -30,10 +36,30 @@
     background-image: none !important;
 }
 
-.swiper-button-next:before {
-    content: "Next";
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 0;
+// Swiper Slider for Portfolio Page
+.swiper-container_portfolio {
+
+    .swiper-wrapper {
+
+        .swiper-slide_portfolio {
+            width: 60vw;
+            opacity: 1;
+        }
+    }
+
+}
+
+
+// Swiper Slider for Single Project Page
+.swiper-container_single-project {
+
+    .swiper-wrapper {
+
+        .swiper-slide_single-project {
+            width: 65vw;
+            opacity: 1;
+
+        }
+    }
+
 }
