@@ -8,6 +8,7 @@ export const featurePortfolioImages = (function(){
         console.log(link);
         let hoveredEl = link.dataset.portfolioImage;
 
+    
         document.querySelector(`img[data-portfolio-image=${hoveredEl}]`).classList.add('display-image');
 
         });    

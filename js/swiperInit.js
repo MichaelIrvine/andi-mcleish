@@ -30,6 +30,13 @@ const fpSlider = function() {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
 		  },
+		  breakpoints: {
+			// when window width is <= 768px
+			768: {
+			  slidesPerView: 1,
+			  allowTouchMove: false
+			},
+		  }
 	
 	});
 
@@ -56,7 +63,7 @@ if(body.classList.contains('archive')){
 			freeModeMomentum: true,
 			preventInteractionOnTransition: true,
 			autoplay: false,
-			speed: 700,
+			speed: 1000,
 			sensitivity: 1,
 			keyboard: {
 				enabled: true,

@@ -1075,20 +1075,22 @@ object {
 .contact-main .contact-col_01 {
   display: flex;
   justify-content: flex-start;
+  opacity: 0;
 }
 .contact-main .contact-col_01 .contact-details-container {
   margin: 1.7em;
   padding: 1em;
 }
 .contact-main .contact-col_01 .contact-details-container p {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 .contact-main .contact-col_02 {
   display: flex;
   justify-content: flex-end;
+  opacity: 0;
 }
 .contact-main .contact-col_02 img {
-  width: 75vw;
+  width: 100vw;
 }
 
 .portfolio-main .portfolio-list-container {
@@ -1190,10 +1192,25 @@ object {
 }
 
 .swiper-container {
-  height: 90vh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
-.swiper-container .swiper-slide {
-  width: 65vw;
+.swiper-container .swiper-wrapper .swiper-slide {
+  height: 100%;
+  width: auto;
+}
+.swiper-container .swiper-wrapper .swiper-slide img {
+  width: auto;
+  height: 68vh;
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container .swiper-wrapper .swiper-slide img {
+    height: 50vh;
+    margin-top: 8vh;
+    margin-bottom: 12vh;
+  }
 }
 
 .swiper-wrapper {
@@ -1202,15 +1219,8 @@ object {
   height: 100vh;
 }
 
-.swiper-slide {
-  opacity: 0.1;
-}
-
-.swiper-slide-active {
-  opacity: 1;
-}
-
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   position: absolute;
   top: 0 !important;
   width: 20% !important;
@@ -1219,6 +1229,17 @@ object {
   z-index: 10;
   cursor: none !important;
   background-image: none !important;
+  user-select: none;
+}
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+  outline: none;
+}
+@media screen and (max-width: 768px) {
+  .swiper-button-next,
+.swiper-button-prev {
+    display: none;
+  }
 }
 
 .swiper-container_portfolio .swiper-wrapper .swiper-slide_portfolio {

@@ -2,7 +2,7 @@
 export const customCursor = (function(){
 // Cursor Vaiables
 const mainCursor = document.querySelector("#cursor");
-const triggers = document.querySelectorAll("a, button");
+const triggers = document.querySelectorAll("a, button, .swiper-button-prev, .swiper-button-next");
 
 
 

@@ -5,13 +5,14 @@
     .contact-col_01 {
         display: flex;
         justify-content: flex-start;
+        opacity: 0;
 
         .contact-details-container {
             margin: 1.7em;
             padding: 1em;
 
             p {
-                font-size: 1.3em;
+                font-size: 1.2em;
             }
         }
     }
@@ -19,9 +20,10 @@
     .contact-col_02 {
         display: flex;
         justify-content: flex-end;
+        opacity: 0;
 
         img {
-            width: 75vw;
+            width: 100vw;
         }
     }
 }

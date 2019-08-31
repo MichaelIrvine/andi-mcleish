@@ -1,65 +1,77 @@
 .swiper-container {
-    height:90vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 
-
+  .swiper-wrapper {
     .swiper-slide {
-        width: 65vw;
+      height: 100%;
+      width: auto;
+
+      img {
+        width: auto;
+        height: 68vh;
+        object-fit: cover;
+
+        @media screen and (max-width: 768px){
+            height: 50vh;
+            margin-top: 8vh;
+            margin-bottom: 12vh;
+        }
+      }
     }
-
+  }
 }
-
 
 .swiper-wrapper {
-    opacity: 0;
-    transition: opacity 800ms ease-in;
-    height: 100vh;
-
+  opacity: 0;
+  transition: opacity 800ms ease-in;
+  height: 100vh;
 }
 
-.swiper-slide {
-    opacity: 0.1;
-   
-}
+// .swiper-slide {
+//   opacity: 0.25;
+// }
 
-.swiper-slide-active {
-    opacity: 1;
-}
+// .swiper-slide-active {
+//   opacity: 1;
+// }
 
-.swiper-button-next, .swiper-button-prev {
-    position: absolute;
-    top: 0 !important;
-    width: 20% !important;
-    height: 100% !important;
-    margin-top: -22px;
-    z-index: 10;
-    cursor: none !important;
-    background-image: none !important;
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 0 !important;
+  width: 20% !important;
+  height: 100% !important;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: none !important;
+  background-image: none !important;
+  user-select: none;
+  &:focus {
+      outline: none;
+  }
+  @media screen and (max-width: 768px){
+      display: none;
+  }
 }
 
 // Swiper Slider for Portfolio Page
 .swiper-container_portfolio {
-
-    .swiper-wrapper {
-
-        .swiper-slide_portfolio {
-            width: 60vw;
-            opacity: 1;
-        }
+  .swiper-wrapper {
+    .swiper-slide_portfolio {
+      width: 60vw;
+      opacity: 1;
     }
-
+  }
 }
-
 
 // Swiper Slider for Single Project Page
 .swiper-container_single-project {
-
-    .swiper-wrapper {
-
-        .swiper-slide_single-project {
-            width: 65vw;
-            opacity: 1;
-
-        }
+  .swiper-wrapper {
+    .swiper-slide_single-project {
+      width: 65vw;
+      opacity: 1;
     }
-
+  }
 }
