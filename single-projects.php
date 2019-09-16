@@ -11,14 +11,8 @@ get_header();
 ?>
 
 <div class="content-area_projects">
-    <?php if( have_rows('project_item') ): 
-
-		// if ( is_singular() ) :
-		// 	the_title( '<h1 class="project-title">', '</h1>' );
-		// else :
-		// 	the_title( '<h2 class="project-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		// endif;
-	?>
+    <?php if( have_rows('project_item') ): ?>
+	<button class="back-button" onclick="history.go(-1);">Back</button>
 
     <div class="swiper-container_single-project">
         <ul class="swiper-wrapper">

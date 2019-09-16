@@ -7,11 +7,14 @@
     .swiper-slide {
       height: 100%;
       width: auto;
+      opacity: 0;
+      transform: translateY(4px);
 
       img {
         width: auto;
         height: 68vh;
         object-fit: cover;
+        transition: all 1.5s ease-in-out;
 
         @media screen and (max-width: 768px){
             height: 50vh;
@@ -24,18 +27,8 @@
 }
 
 .swiper-wrapper {
-  opacity: 0;
-  transition: opacity 800ms ease-in;
   height: 100vh;
 }
-
-// .swiper-slide {
-//   opacity: 0.25;
-// }
-
-// .swiper-slide-active {
-//   opacity: 1;
-// }
 
 .swiper-button-next,
 .swiper-button-prev {

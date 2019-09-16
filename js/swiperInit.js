@@ -16,8 +16,8 @@ const fpSlider = function() {
 		freeModeSticky: false,
 		freeModeMomentum: true,
 		preventInteractionOnTransition: true,
-		autoplay: false,
-		speed: 700,
+		autoplay: { delay: 4300 },
+		speed: 730,
 		sensitivity: 1,
 		keyboard: {
 			enabled: true,
@@ -34,7 +34,8 @@ const fpSlider = function() {
 			// when window width is <= 768px
 			768: {
 			  slidesPerView: 1,
-			  allowTouchMove: false
+			  allowTouchMove: false,
+			  autoplay: false,
 			},
 		  }
 	

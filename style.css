@@ -991,18 +991,25 @@ object {
 .site-footer .footer_col-01 .footer_col-01-title {
   text-decoration: underline;
   font-weight: 300;
+  font-size: 0.9em;
 }
 .site-footer .footer_col-01 .footer-navigation_main a, .site-footer .footer_col-01 .footer-navigation_social a {
   font-weight: 300;
+  font-size: 0.9em;
 }
 .site-footer .footer_col-02 .footer_col-02-title {
   text-decoration: underline;
   font-weight: 300;
+  font-size: 0.9em;
 }
 .site-footer .footer_col-02 p {
   font-weight: 300;
+  font-size: 0.9em;
 }
 
+.site-main_front-page {
+  height: 100vh;
+}
 .site-main_front-page .front-page-project-title {
   display: none;
   position: absolute;
@@ -1199,11 +1206,14 @@ object {
 .swiper-container .swiper-wrapper .swiper-slide {
   height: 100%;
   width: auto;
+  opacity: 0;
+  transform: translateY(4px);
 }
 .swiper-container .swiper-wrapper .swiper-slide img {
   width: auto;
   height: 68vh;
   object-fit: cover;
+  transition: all 1.5s ease-in-out;
 }
 @media screen and (max-width: 768px) {
   .swiper-container .swiper-wrapper .swiper-slide img {
@@ -1214,8 +1224,6 @@ object {
 }
 
 .swiper-wrapper {
-  opacity: 0;
-  transition: opacity 800ms ease-in;
   height: 100vh;
 }
 
