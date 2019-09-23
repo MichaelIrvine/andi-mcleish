@@ -1,6 +1,10 @@
 
 .site-main_front-page {
-    height: 100vh;
+    height: 75vh;
+
+    @media screen and (max-width: 768px) {
+        height: auto;
+    }
 
     .front-page-project-title {
         display: none;

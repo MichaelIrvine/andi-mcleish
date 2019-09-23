@@ -9,13 +9,24 @@
 
             .project-list-item {
                 padding: 0.5em;
+                opacity: 0;
                 
                 a {
                 font-size: 1.3em;
                 font-weight: 300;
                 color: #d9d9d9;
                 text-transform: uppercase;
-                transition: color 500ms ease-in-out;
+                transition: color 850ms ease-in-out;
+
+                @media screen and (max-width: 768px){
+                    font-size: 1em;
+                    color: #321325;
+                }
+
+                @media screen and (max-width: 350px){
+                    font-size: 0.7em;
+                    color: #321325;
+                }
 
                 &:hover {
                     color: #321325;
@@ -33,7 +44,7 @@
     .portfolio-image-container {
         display: flex;
         justify-content: center;
-
+        opacity: 0;
         
 
         .portfolio-images {
@@ -41,6 +52,14 @@
             position: relative;
             height: 75vh;
             width: 100%;
+
+            @media screen and (max-width: 768px){
+                height: 50vh;
+            }
+
+            @media screen and (max-width: 450px){
+                height: 36vh;
+            }
 
             .portfolio-image-item {
                 position: absolute;
@@ -55,7 +74,7 @@
 
 .portfolio-feature-image {
     opacity: 0;
-    transition: all 450ms ease-in-out;
+    transition: all 850ms ease-in-out;
 }
 
 

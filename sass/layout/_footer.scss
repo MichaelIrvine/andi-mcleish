@@ -3,6 +3,10 @@
     justify-content: flex-start;
     padding: 2.5em;
 
+    @media screen and (max-width: 350px){
+        flex-direction: column;
+    }
+
     .footer_col-01 {
         margin-right: 10vw;
 

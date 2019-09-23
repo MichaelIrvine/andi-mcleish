@@ -35,6 +35,22 @@ export const PageAnimations = (function(){
 
         contactTl.play();
     };
+
+    if(body.classList.contains('page-portfolio')){
+        
+        // --Vars
+        const portfolioListItems = document.querySelectorAll('.project-list-item');
+        const portfolioImages = document.querySelector('.portfolio-image-container');
+
+        const portfolioTl = new TimelineMax({
+            paused: true
+        });
+
+        portfolioTl.staggerFromTo(portfolioListItems, 0.6, {opacity: 0, y: 3}, {opacity: 1, y:0, ease: Power1.easeIn}, 0.3)
+        .fromTo(portfolioImages, 0.9, {opacity:0, y: 3}, {opacity: 1, y:0,  ease: Power1.easeIn },"-=0.3");
+
+        portfolioTl.play();
+    };
     
 
 })();

@@ -46,6 +46,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 body, html, a, button {
   cursor: none;
 }
+@media screen and (max-width: 768px) {
+  body, html, a, button {
+    cursor: default;
+  }
+}
 
 /*--------------------------------------------------------------
 # Normalize
@@ -395,7 +400,7 @@ textarea {
   font-family: poynter-gothic-text, sans-serif;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -682,29 +687,37 @@ a:hover, a:active {
   color: #321325;
 }
 
-.main-menu-toggle {
+.menu-button-wrapper {
   position: fixed;
   bottom: 2vh;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  height: 24px;
-  overflow: hidden;
   z-index: 3;
+  height: 28px;
+}
+.menu-button-wrapper .main-menu-toggle {
+  position: relative;
+  height: 26px;
+  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 50px;
   padding: 2px 20px 2px 20px;
 }
 @media screen and (max-width: 768px) {
-  .main-menu-toggle {
+  .menu-button-wrapper .main-menu-toggle {
     background-color: white;
     border: 1px solid #171717;
   }
 }
-.main-menu-toggle .menu-toggle_open, .main-menu-toggle .menu-toggle_close {
+.menu-button-wrapper .menu-toggle_open, .menu-button-wrapper .menu-toggle_close {
   font-weight: 300;
   transition: all 800ms ease-in-out;
+  height: 20px;
+  padding: 0;
+  display: block;
+}
+.menu-button-wrapper .menu-toggle_close {
+  opacity: 0;
 }
 
 #primary-menu > .menu-item {
@@ -713,11 +726,10 @@ a:hover, a:active {
 
 .back-button {
   font-weight: 300;
-  font-size: 1.2em;
-  position: fixed;
-  top: 100px;
-  left: 20px;
+  font-size: 1em;
   text-transform: uppercase;
+  padding-left: 20px;
+  margin-bottom: 2vh;
 }
 
 /*--------------------------------------------------------------
@@ -985,6 +997,11 @@ object {
   justify-content: flex-start;
   padding: 2.5em;
 }
+@media screen and (max-width: 350px) {
+  .site-footer {
+    flex-direction: column;
+  }
+}
 .site-footer .footer_col-01 {
   margin-right: 10vw;
 }
@@ -1008,7 +1025,12 @@ object {
 }
 
 .site-main_front-page {
-  height: 100vh;
+  height: 75vh;
+}
+@media screen and (max-width: 768px) {
+  .site-main_front-page {
+    height: auto;
+  }
 }
 .site-main_front-page .front-page-project-title {
   display: none;
@@ -1040,16 +1062,10 @@ object {
 .bio-main .bio-col_01 .bio-image-container {
   display: flex;
   justify-content: center;
-  padding: 1em 1em 8em 8em;
-}
-@media screen and (max-width: 768px) {
-  .bio-main .bio-col_01 .bio-image-container {
-    padding: 1em 8em;
-  }
+  width: 100%;
 }
 .bio-main .bio-col_01 .bio-image-container img {
-  min-width: 300px;
-  max-width: 600px;
+  max-width: 500px;
 }
 .bio-main .bio-col_02 {
   width: 47%;
@@ -1061,7 +1077,7 @@ object {
   }
 }
 .bio-main .bio-col_02 .bio-text-container {
-  margin-top: 10vh;
+  margin-top: 70px;
   padding: 1.5em 2.5em 1.5em 1.5em;
 }
 @media screen and (max-width: 768px) {
@@ -1109,13 +1125,26 @@ object {
 }
 .portfolio-main .portfolio-list-container .portfolio-list .project-list-item {
   padding: 0.5em;
+  opacity: 0;
 }
 .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a {
   font-size: 1.3em;
   font-weight: 300;
   color: #d9d9d9;
   text-transform: uppercase;
-  transition: color 500ms ease-in-out;
+  transition: color 850ms ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a {
+    font-size: 1em;
+    color: #321325;
+  }
+}
+@media screen and (max-width: 350px) {
+  .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a {
+    font-size: 0.7em;
+    color: #321325;
+  }
 }
 .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a:hover {
   color: #321325;
@@ -1123,12 +1152,23 @@ object {
 .portfolio-main .portfolio-image-container {
   display: flex;
   justify-content: center;
+  opacity: 0;
 }
 .portfolio-main .portfolio-image-container .portfolio-images {
   max-width: 800px;
   position: relative;
   height: 75vh;
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .portfolio-main .portfolio-image-container .portfolio-images {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 450px) {
+  .portfolio-main .portfolio-image-container .portfolio-images {
+    height: 36vh;
+  }
 }
 .portfolio-main .portfolio-image-container .portfolio-images .portfolio-image-item {
   position: absolute;
@@ -1138,7 +1178,7 @@ object {
 
 .portfolio-feature-image {
   opacity: 0;
-  transition: all 450ms ease-in-out;
+  transition: all 850ms ease-in-out;
 }
 
 .portfolio-feature-image.display-image {
@@ -1164,6 +1204,13 @@ object {
   height: 0;
   pointer-events: none;
   z-index: 999;
+}
+@media screen and (max-width: 768px) {
+  #cursor {
+    display: none;
+    top: 0;
+    left: 0;
+  }
 }
 #cursor::after {
   content: "";
@@ -1203,11 +1250,31 @@ object {
   position: relative;
   overflow: hidden;
 }
+@media screen and (max-width: 768px) {
+  .swiper-container .swiper-wrapper {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container .swiper-wrapper {
+    height: 50vh;
+  }
+}
 .swiper-container .swiper-wrapper .swiper-slide {
   height: 100%;
   width: auto;
   opacity: 0;
   transform: translateY(4px);
+}
+@media screen and (max-width: 768px) {
+  .swiper-container .swiper-wrapper .swiper-slide {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container .swiper-wrapper .swiper-slide {
+    height: 50vh;
+  }
 }
 .swiper-container .swiper-wrapper .swiper-slide img {
   width: auto;
@@ -1218,8 +1285,120 @@ object {
 @media screen and (max-width: 768px) {
   .swiper-container .swiper-wrapper .swiper-slide img {
     height: 50vh;
-    margin-top: 8vh;
-    margin-bottom: 12vh;
+    margin-top: 5vh;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container .swiper-wrapper .swiper-slide img {
+    height: 48vh;
+    margin-top: 2vh;
+  }
+}
+
+.swiper-container_portfolio {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container_portfolio .swiper-wrapper {
+    margin-top: 12vh;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container_portfolio .swiper-wrapper {
+    margin-top: 5vh;
+  }
+}
+.swiper-container_portfolio .swiper-wrapper .swiper-slide {
+  height: 100%;
+  width: auto;
+  opacity: 0;
+  transform: translateY(4px);
+}
+.swiper-container_portfolio .swiper-wrapper .swiper-slide img {
+  width: auto;
+  height: 68vh;
+  object-fit: cover;
+  transition: all 1.5s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container_portfolio .swiper-wrapper .swiper-slide img {
+    height: 45vh;
+    margin-top: 2vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container_portfolio .swiper-wrapper .swiper-slide img {
+    height: 40vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
+
+.swiper-container_single-project {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container_single-project .swiper-wrapper {
+    margin-top: 12vh;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container_single-project .swiper-wrapper {
+    margin-top: 5vh;
+  }
+}
+.swiper-container_single-project .swiper-wrapper .swiper-slide {
+  height: 100%;
+  width: auto;
+  opacity: 0;
+  transform: translateY(4px);
+}
+.swiper-container_single-project .swiper-wrapper .swiper-slide img {
+  width: auto;
+  height: 68vh;
+  object-fit: cover;
+  transition: all 1.5s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container_single-project .swiper-wrapper .swiper-slide img {
+    height: 45vh;
+    margin-top: 2vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container_single-project .swiper-wrapper .swiper-slide img {
+    height: 40vh;
+    margin-top: 5vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
+.swiper-container_single-project .swiper-wrapper .swiper-slide video {
+  width: auto;
+  transition: all 1.5s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container_single-project .swiper-wrapper .swiper-slide video {
+    height: 45vh;
+    margin-top: 2vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container_single-project .swiper-wrapper .swiper-slide video {
+    height: 40vh;
+    margin-top: 5vh;
+    max-width: 95vw;
+    object-fit: contain;
   }
 }
 
@@ -1248,16 +1427,6 @@ object {
 .swiper-button-prev {
     display: none;
   }
-}
-
-.swiper-container_portfolio .swiper-wrapper .swiper-slide_portfolio {
-  width: 60vw;
-  opacity: 1;
-}
-
-.swiper-container_single-project .swiper-wrapper .swiper-slide_single-project {
-  width: 65vw;
-  opacity: 1;
 }
 
 .visually-hide-footer {

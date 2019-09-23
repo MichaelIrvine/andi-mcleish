@@ -1,4 +1,4 @@
-console.log("Website by Michael Irvine ;)");
+console.log("Website by Michael Irvine");
 
 
 // MAIN IMPORTS
@@ -8,4 +8,5 @@ import * as featurePortfolioImages from './FeaturePortfolioImages';
 import * as hideFooter from './HideFooter';
 import * as SlideAnimations from './SlideAnimations';
 import * as PageAnimations from './PageAnimations';
+
 

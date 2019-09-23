@@ -48,6 +48,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 body, html, a, button {
 	cursor: none;
+
+	@media screen and (max-width: 768px){
+		cursor: default;
+	}
 }
 
 

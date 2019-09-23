@@ -1,9 +1,67 @@
 .swiper-container {
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 
   .swiper-wrapper {
+
+    @media screen and (max-width: 768px) {
+      height: 50vh;
+    }
+
+    @media screen and (max-width: 450px) {
+      height: 50vh;
+    }
+
+    .swiper-slide {
+      height: 100%;
+      width: auto;
+      opacity: 0;
+      transform: translateY(4px);
+
+      @media screen and (max-width: 768px) {
+        height: 50vh;
+      }
+
+      @media screen and (max-width: 450px) {
+        height: 50vh;
+      }
+
+      img {
+        width: auto;
+        height: 68vh;
+        object-fit: cover;
+        transition: all 1.5s ease-in-out;
+
+        @media screen and (max-width: 768px) {
+          height: 50vh;
+          margin-top: 5vh;
+        }
+
+        @media screen and (max-width: 450px) {
+          height: 48vh;
+          margin-top: 2vh;
+        }
+      }
+    }
+  }
+}
+
+.swiper-container_portfolio {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  .swiper-wrapper {
+
+    @media screen and (max-width: 768px) {
+      margin-top: 12vh;
+    }
+
+    @media screen and (max-width: 450px) {
+      margin-top: 5vh;
+    }
+
     .swiper-slide {
       height: 100%;
       width: auto;
@@ -16,15 +74,87 @@
         object-fit: cover;
         transition: all 1.5s ease-in-out;
 
-        @media screen and (max-width: 768px){
-            height: 50vh;
-            margin-top: 8vh;
-            margin-bottom: 12vh;
+        @media screen and (max-width: 768px) {
+          height: 45vh;
+          margin-top: 2vh;
+          max-width: 95vw;
+          object-fit: contain;
+        }
+
+        @media screen and (max-width: 450px) {
+          height: 40vh;
+          max-width: 95vw;
+          object-fit: contain;
         }
       }
     }
   }
 }
+
+.swiper-container_single-project {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  .swiper-wrapper {
+    
+    @media screen and (max-width: 768px) {
+      margin-top: 12vh;
+    }
+
+    @media screen and (max-width: 450px) {
+      margin-top: 5vh;
+    }
+
+    .swiper-slide {
+      height: 100%;
+      width: auto;
+      opacity: 0;
+      transform: translateY(4px);
+
+      img {
+        width: auto;
+        height: 68vh;
+        object-fit: cover;
+        transition: all 1.5s ease-in-out;
+
+        @media screen and (max-width: 768px) {
+          height: 45vh;
+          margin-top: 2vh;
+          max-width: 95vw;
+          object-fit: contain;
+        }
+
+        @media screen and (max-width: 450px) {
+          height: 40vh;
+          margin-top: 5vh;
+          max-width: 95vw;
+          object-fit: contain;
+        }
+      }
+
+      video {
+        width: auto;
+        transition: all 1.5s ease-in-out;
+
+        @media screen and (max-width: 768px) {
+          height: 45vh;
+          margin-top: 2vh;
+          max-width: 95vw;
+          object-fit: contain;
+        }
+
+        @media screen and (max-width: 450px) {
+          height: 40vh;
+          margin-top: 5vh;
+          max-width: 95vw;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
 
 .swiper-wrapper {
   height: 100vh;
@@ -42,29 +172,11 @@
   background-image: none !important;
   user-select: none;
   &:focus {
-      outline: none;
+    outline: none;
   }
-  @media screen and (max-width: 768px){
-      display: none;
-  }
-}
-
-// Swiper Slider for Portfolio Page
-.swiper-container_portfolio {
-  .swiper-wrapper {
-    .swiper-slide_portfolio {
-      width: 60vw;
-      opacity: 1;
-    }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 }
 
-// Swiper Slider for Single Project Page
-.swiper-container_single-project {
-  .swiper-wrapper {
-    .swiper-slide_single-project {
-      width: 65vw;
-      opacity: 1;
-    }
-  }
-}
+

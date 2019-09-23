@@ -15,7 +15,6 @@ get_header();
     <main id="main_portfolio" class="portfolio-main">
         <?php
 			$tax_terms = get_terms('project_types');
-			
 		?>
         <div class="portfolio-list-container">
             <ul class="portfolio-list">

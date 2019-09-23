@@ -39,12 +39,14 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
-
-		<a class="main-menu-toggle">
-			<button class="menu-toggle_open" >MENU</button>
-			<button class="menu-toggle_close hidden" >CLOSE</button>
-		</a>
-		<div class="preloader"></div>
+	
+		<div class="menu-button-wrapper">
+			<div class="main-menu-toggle">
+				<button class="menu-toggle_open">MENU</button>
+				<button class="menu-toggle_close">CLOSE</button>
+			</div>
+		</div>
+		
 		<div id="cursor" class="cursor--ready"></div>
 	</header><!-- #masthead -->
 

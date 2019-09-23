@@ -11,11 +11,11 @@
     
 
     // Switch this on for mobile devices
-    // @media screen and (max-width: 768px){
-    //     display: none;
-    //     top: 0;
-    //     left: 0;
-    // }
+    @media screen and (max-width: 768px){
+        display: none;
+        top: 0;
+        left: 0;
+    }
 
     &::after{
         content: "";

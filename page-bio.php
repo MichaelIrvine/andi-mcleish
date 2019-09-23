@@ -22,7 +22,7 @@ get_header();
             <div class="bio-image-container">
                 <?php 
 				$image = get_field('bio_image');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
+				$size = 'full';
 
 				if( $image ) {
 					echo wp_get_attachment_image( $image, $size );
