@@ -6,7 +6,6 @@
  *
  * @package Andi_McLeish
  */
-
 ?>
 
 <li id="post-<?php the_ID(); ?>" class="swiper-slide swiper-slide_portfolio">

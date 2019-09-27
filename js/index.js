@@ -1,5 +1,3 @@
-console.log("Website by Michael Irvine");
-
 
 // MAIN IMPORTS
 import * as menuToggle from './MenuToggle';

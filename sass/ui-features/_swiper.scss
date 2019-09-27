@@ -70,7 +70,7 @@
 
       img {
         width: auto;
-        height: 68vh;
+        height: 62vh;
         object-fit: cover;
         transition: all 1.5s ease-in-out;
 
@@ -95,6 +95,7 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  z-index: 3;
 
   .swiper-wrapper {
     

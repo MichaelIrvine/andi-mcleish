@@ -1,3 +1,15 @@
+.preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200vh;
+    width: 100%;
+    display: block;
+    background-color: #ffffff;
+    z-index: 100;
+}
+
 
 .site-main_front-page {
     height: 75vh;
@@ -11,6 +23,11 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .front-page-image_wrapper {
+        opacity: 0;
+        margin-top: 5vh;
     }
 
 

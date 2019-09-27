@@ -90,7 +90,6 @@ if(body.classList.contains('archive')){
 
 
 if(body.classList.contains('single-projects')){
-	console.log("single-projects y");
 	
 	const singleProjectSwiper = function() {
 	

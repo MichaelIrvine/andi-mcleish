@@ -1,0 +1,25 @@
+.content-area_projects {
+    display: flex;
+
+        .spacer{
+            width: 200px;
+            height: 70vh;
+        }
+
+        .project-title-wrapper {
+        padding: 1em;    
+        z-index: 1;
+        position: absolute;
+        width: 35%;
+        margin-left: 50px;
+        
+        
+        .project-title {
+            font-size: 6.5em;
+            font-family: $font__serrif;
+            font-style: italic;
+            color: #171717;
+            
+        }
+    }
+}

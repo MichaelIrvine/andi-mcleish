@@ -14,20 +14,29 @@
 
 get_header();
 ?>
-
+	<div class="preloader"></div>
 	<div id="primary_front-page" class="content-area_front-page">
 		<main id="main_front-page" class="site-main_front-page">
 		
 		<?php
-		$fpImages = get_field('front_page_gallery');
+		$fpImage = get_field('front_page_image');
+		$size = 'full';
+		$fpGallery = get_field('front_page_gallery');
 
-		if( $fpImages ): ?>
+
+		if( $fpImage ): ?>
+			<div class="front-page-image_wrapper">
+				<?php echo wp_get_attachment_image( $fpImage, $size ); ?>
+			</div>
+		<?php endif; ?>
+		<?php
+		if( $fpGallery ): ?>
 			<div class="front-page-gallery swiper-container">
 				<ul class="front-page-slides swiper-wrapper">
-					<?php foreach( $fpImages as $image ): ?>
+					<?php foreach( $fpGallery as $galleryItem ): ?>
 						<li class="swiper-slide">
-							<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-							<p><?php echo $image['caption']; ?></p>
+							<img src="<?php echo $galleryItem['url']; ?>" alt="<?php echo $galleryItem['alt']; ?>" />
+							<p><?php echo $galleryItem['caption']; ?></p>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -35,8 +44,6 @@ get_header();
     			<div class="swiper-button-prev"></div>
 			</div>
 		<?php endif; ?>	
-			
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

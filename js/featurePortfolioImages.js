@@ -3,7 +3,7 @@ export const featurePortfolioImages = (function(){
     const portfolioLinks = document.querySelectorAll('li[data-portfolio-image]');
 
     portfolioLinks.forEach(link => {link.addEventListener('mouseenter', function(e){
-        console.log(link);
+        
         let hoveredEl = link.dataset.portfolioImage;
 
         document.querySelector(`img[data-portfolio-image=${hoveredEl}]`).classList.add('display-image');
@@ -12,7 +12,7 @@ export const featurePortfolioImages = (function(){
     });
     
     portfolioLinks.forEach(link => {link.addEventListener('mouseleave', function(e){
-        console.log(link);
+        
         let hoveredEl = link.dataset.portfolioImage;
 
         document.querySelector(`img[data-portfolio-image=${hoveredEl}]`).classList.remove('display-image');

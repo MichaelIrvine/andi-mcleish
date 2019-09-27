@@ -1,7 +1,7 @@
 export const SlideAnimations = (function(){
     const slides = document.querySelectorAll('.swiper-slide');
     
-
+    
     const slideTl = new TimelineMax({
         paused: true
     });

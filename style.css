@@ -653,8 +653,8 @@ a:hover, a:active {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
-  background-color: rgba(255, 255, 255, 0.68);
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -674,7 +674,7 @@ a:hover, a:active {
   transform: translateY(3px);
 }
 .main-navigation .menu-menu-1-container .menu .menu-item a {
-  font-size: 3em;
+  font-size: 4em;
   font-weight: 300;
   color: #171717;
   text-transform: uppercase;
@@ -692,7 +692,7 @@ a:hover, a:active {
   bottom: 2vh;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 100;
   height: 28px;
 }
 .menu-button-wrapper .main-menu-toggle {
@@ -715,6 +715,7 @@ a:hover, a:active {
   height: 20px;
   padding: 0;
   display: block;
+  line-height: 1.5;
 }
 .menu-button-wrapper .menu-toggle_close {
   opacity: 0;
@@ -1024,6 +1025,18 @@ object {
   font-size: 0.9em;
 }
 
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200vh;
+  width: 100%;
+  display: block;
+  background-color: #ffffff;
+  z-index: 100;
+}
+
 .site-main_front-page {
   height: 75vh;
 }
@@ -1037,6 +1050,10 @@ object {
   position: absolute;
   top: 0;
   left: 0;
+}
+.site-main_front-page .front-page-image_wrapper {
+  opacity: 0;
+  margin-top: 5vh;
 }
 
 .bio-main {
@@ -1087,7 +1104,8 @@ object {
   }
 }
 .bio-main .bio-col_02 .bio-text-container p {
-  font-size: 1.3em;
+  font-family: poynter-gothic-text, sans-serif;
+  font-size: 1.2em;
   color: black;
 }
 
@@ -1103,6 +1121,10 @@ object {
 .contact-main .contact-col_01 .contact-details-container {
   margin: 1.7em;
   padding: 1em;
+}
+.contact-main .contact-col_01 .contact-details-container h1 {
+  font-family: poynter-oldstyle-display, serif;
+  font-style: italic;
 }
 .contact-main .contact-col_01 .contact-details-container p {
   font-size: 1.2em;
@@ -1191,6 +1213,27 @@ object {
 
 .projects-main .project-title {
   text-align: right;
+}
+
+.content-area_projects {
+  display: flex;
+}
+.content-area_projects .spacer {
+  width: 200px;
+  height: 70vh;
+}
+.content-area_projects .project-title-wrapper {
+  padding: 1em;
+  z-index: 1;
+  position: absolute;
+  width: 35%;
+  margin-left: 50px;
+}
+.content-area_projects .project-title-wrapper .project-title {
+  font-size: 6.5em;
+  font-family: poynter-oldstyle-display, serif;
+  font-style: italic;
+  color: #171717;
 }
 
 /*--------------------------------------------------------------
@@ -1318,7 +1361,7 @@ object {
 }
 .swiper-container_portfolio .swiper-wrapper .swiper-slide img {
   width: auto;
-  height: 68vh;
+  height: 62vh;
   object-fit: cover;
   transition: all 1.5s ease-in-out;
 }
@@ -1342,6 +1385,7 @@ object {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  z-index: 3;
 }
 @media screen and (max-width: 768px) {
   .swiper-container_single-project .swiper-wrapper {

@@ -2,6 +2,27 @@ export const PageAnimations = (function(){
     // Animations for Pages on load
     const body = document.querySelector('body');
 
+    if(body.classList.contains('home')){
+        // -- Vars
+        const preLoader = document.querySelector(".preloader");
+        const logo = document.querySelector('.site-branding');
+        const menuButton = document.querySelector('.main-menu-toggle');
+        const fpImage = document.querySelector('.front-page-image_wrapper');
+
+        const fpAnimation = new TimelineMax({
+            paused: true
+        });
+
+        fpAnimation
+        .fromTo(preLoader, 0.5, {opacity:1}, {opacity:0, y: "-100vh", height: '1px'})
+        .fromTo(fpImage, 2, {scale: 1.01, y:-6, opacity: 0, y: 4}, {scale: 1, opacity:1, y:0, ease: Power3.easeInOut} )
+        .fromTo(logo, 1, {opacity:0}, {opacity:1,ease: Power3.easeInOut}, "-=1" )
+        .fromTo(menuButton, 1, {opacity: 0, y: 15}, {opacity: 1, y: 0, ease: Power3.easeInOut}, "-=0.5")
+
+        fpAnimation.play();
+
+    }
+
     // Page load animations for Bio Page
     // Check if page is Bio Page
     if(body.classList.contains('page-bio')){
@@ -52,5 +73,26 @@ export const PageAnimations = (function(){
         portfolioTl.play();
     };
     
+    // Project Gallery Title
+    if(body.classList.contains('single-projects')){
+        const projectTitle = document.querySelector('.project-title-wrapper');
+
+        const projectTitleFadeIn = new TimelineMax({
+            paused: true
+        });
+
+        projectTitleFadeIn.fromTo(projectTitle, 1, {opacity: 0, y: 20}, {opacity: 1, y: 0, ease: Power1.easeIn});
+
+        projectTitleFadeIn.play();
+
+        // Figure this out later
+        window.addEventListener("scroll", function(){
+            console.log(window.pageXOffset); 
+        })
+        
+    }
+
+
+
 
 })();
