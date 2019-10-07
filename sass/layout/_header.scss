@@ -1,10 +1,17 @@
-.site-branding {
+.header-wrapper {
     display: flex;
     justify-content: center;
-    padding: 1em;
-    // opacity: 0;
 
-    .custom-logo-link {
-        width: 125px;
+    @media screen and (max-width: 768px){
+        justify-content: space-between;
+    }
+
+    .site-branding {
+        padding: 1em;
+    
+        .custom-logo-link {
+            width: 125px;
+        }
     }
 }
+

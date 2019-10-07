@@ -680,6 +680,11 @@ a:hover, a:active {
   text-transform: uppercase;
   transition: color 500ms ease-in-out;
 }
+@media screen and (max-width: 361px) {
+  .main-navigation .menu-menu-1-container .menu .menu-item a {
+    font-size: 3.3em;
+  }
+}
 .main-navigation .menu-menu-1-container .menu .menu-item a:hover {
   color: #3c6e71;
 }
@@ -695,6 +700,11 @@ a:hover, a:active {
   z-index: 100;
   height: 28px;
 }
+@media screen and (max-width: 768px) {
+  .menu-button-wrapper {
+    display: none;
+  }
+}
 .menu-button-wrapper .main-menu-toggle {
   position: relative;
   height: 26px;
@@ -702,12 +712,6 @@ a:hover, a:active {
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 50px;
   padding: 2px 20px 2px 20px;
-}
-@media screen and (max-width: 768px) {
-  .menu-button-wrapper .main-menu-toggle {
-    background-color: white;
-    border: 1px solid #171717;
-  }
 }
 .menu-button-wrapper .menu-toggle_open, .menu-button-wrapper .menu-toggle_close {
   font-weight: 300;
@@ -719,6 +723,47 @@ a:hover, a:active {
 }
 .menu-button-wrapper .menu-toggle_close {
   opacity: 0;
+}
+
+.menu-button-wrapper_mobile {
+  z-index: 100;
+  height: 28px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+@media screen and (min-width: 768px) {
+  .menu-button-wrapper_mobile {
+    display: none;
+  }
+}
+.menu-button-wrapper_mobile .main-menu-toggle_mobile {
+  position: relative;
+  height: 30px;
+  padding: 2px 20px 2px 20px;
+}
+.menu-button-wrapper_mobile .menu-toggle_open_mobile {
+  font-weight: 300;
+  transition: all 800ms ease-in-out;
+  height: 20px;
+  padding: 0;
+  display: block;
+  line-height: 1.5;
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+.menu-button-wrapper_mobile .menu-toggle_close_mobile {
+  font-weight: 300;
+  transition: all 800ms ease-in-out;
+  height: 20px;
+  padding: 0;
+  display: block;
+  line-height: 1.5;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 18px;
 }
 
 #primary-menu > .menu-item {
@@ -984,12 +1029,19 @@ object {
 /*--------------------------------------------------------------
 # UI Features
 --------------------------------------------------------------*/
-.site-branding {
+.header-wrapper {
   display: flex;
   justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .header-wrapper {
+    justify-content: space-between;
+  }
+}
+.header-wrapper .site-branding {
   padding: 1em;
 }
-.site-branding .custom-logo-link {
+.header-wrapper .site-branding .custom-logo-link {
   width: 125px;
 }
 
@@ -1054,6 +1106,17 @@ object {
 .site-main_front-page .front-page-image_wrapper {
   opacity: 0;
   margin-top: 5vh;
+}
+@media screen and (max-width: 768px) {
+  .site-main_front-page .front-page-image_wrapper {
+    height: 40vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .site-main_front-page .front-page-image_wrapper img {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .bio-main {
@@ -1176,6 +1239,12 @@ object {
   justify-content: center;
   opacity: 0;
 }
+@media screen and (max-width: 768px) {
+  .portfolio-main .portfolio-image-container {
+    height: 50vh;
+    overflow: hidden;
+  }
+}
 .portfolio-main .portfolio-image-container .portfolio-images {
   max-width: 800px;
   position: relative;
@@ -1196,6 +1265,17 @@ object {
   position: absolute;
   top: 0;
   left: 0;
+}
+@media screen and (max-width: 768px) {
+  .portfolio-main .portfolio-image-container .portfolio-images .portfolio-image-item {
+    height: 45vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  .portfolio-main .portfolio-image-container .portfolio-images .portfolio-image-item img {
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .portfolio-feature-image {
@@ -1218,22 +1298,51 @@ object {
 .content-area_projects {
   display: flex;
 }
-.content-area_projects .spacer {
-  width: 200px;
-  height: 70vh;
+@media screen and (max-width: 450px) {
+  .content-area_projects {
+    height: 80vh;
+  }
 }
-.content-area_projects .project-title-wrapper {
-  padding: 1em;
-  z-index: 1;
-  position: absolute;
-  width: 35%;
-  margin-left: 50px;
+.content-area_projects .project-heading {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  pointer-events: none;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9;
+  transform: translate(-50%, 0);
+  text-align: center;
+  opacity: 0;
 }
-.content-area_projects .project-title-wrapper .project-title {
-  font-size: 6.5em;
+@media screen and (max-width: 450px) {
+  .content-area_projects .project-heading {
+    position: unset;
+  }
+}
+.content-area_projects .project-heading .project-title-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+@media screen and (max-width: 450px) {
+  .content-area_projects .project-heading .project-title-wrapper {
+    align-items: flex-end;
+    width: 100vw;
+    height: 26vh;
+    padding-left: 4vw;
+  }
+}
+.content-area_projects .project-heading .project-title-wrapper .project-title {
   font-family: poynter-oldstyle-display, serif;
   font-style: italic;
   color: #171717;
+  font-weight: 300;
+  font-size: 8vw;
+  line-height: 8vw;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -1307,7 +1416,7 @@ object {
   height: 100%;
   width: auto;
   opacity: 0;
-  transform: translateY(4px);
+  z-index: -1;
 }
 @media screen and (max-width: 768px) {
   .swiper-container .swiper-wrapper .swiper-slide {
@@ -1357,7 +1466,6 @@ object {
   height: 100%;
   width: auto;
   opacity: 0;
-  transform: translateY(4px);
 }
 .swiper-container_portfolio .swiper-wrapper .swiper-slide img {
   width: auto;
@@ -1385,7 +1493,6 @@ object {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  z-index: 3;
 }
 @media screen and (max-width: 768px) {
   .swiper-container_single-project .swiper-wrapper {
@@ -1397,11 +1504,31 @@ object {
     margin-top: 5vh;
   }
 }
+.swiper-container_single-project .swiper-wrapper .swiper-spacer {
+  width: 40vw !important;
+  z-index: 99 !important;
+}
+@media screen and (max-width: 768px) {
+  .swiper-container_single-project .swiper-wrapper .swiper-spacer {
+    height: 45vh;
+    margin-top: 2vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
+@media screen and (max-width: 450px) {
+  .swiper-container_single-project .swiper-wrapper .swiper-spacer {
+    height: 20vh;
+    margin-top: 5vh;
+    max-width: 95vw;
+    object-fit: contain;
+  }
+}
 .swiper-container_single-project .swiper-wrapper .swiper-slide {
   height: 100%;
   width: auto;
   opacity: 0;
-  transform: translateY(4px);
+  z-index: 1;
 }
 .swiper-container_single-project .swiper-wrapper .swiper-slide img {
   width: auto;
@@ -1411,7 +1538,7 @@ object {
 }
 @media screen and (max-width: 768px) {
   .swiper-container_single-project .swiper-wrapper .swiper-slide img {
-    height: 45vh;
+    height: 55vh;
     margin-top: 2vh;
     max-width: 95vw;
     object-fit: contain;
@@ -1419,7 +1546,7 @@ object {
 }
 @media screen and (max-width: 450px) {
   .swiper-container_single-project .swiper-wrapper .swiper-slide img {
-    height: 40vh;
+    height: 50vh;
     margin-top: 5vh;
     max-width: 95vw;
     object-fit: contain;
@@ -1431,7 +1558,7 @@ object {
 }
 @media screen and (max-width: 768px) {
   .swiper-container_single-project .swiper-wrapper .swiper-slide video {
-    height: 45vh;
+    height: 55vh;
     margin-top: 2vh;
     max-width: 95vw;
     object-fit: contain;
@@ -1439,7 +1566,7 @@ object {
 }
 @media screen and (max-width: 450px) {
   .swiper-container_single-project .swiper-wrapper .swiper-slide video {
-    height: 40vh;
+    height: 50vh;
     margin-top: 5vh;
     max-width: 95vw;
     object-fit: contain;

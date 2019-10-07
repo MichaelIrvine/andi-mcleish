@@ -17,7 +17,7 @@
       height: 100%;
       width: auto;
       opacity: 0;
-      transform: translateY(4px);
+      z-index: -1;
 
       @media screen and (max-width: 768px) {
         height: 50vh;
@@ -66,7 +66,7 @@
       height: 100%;
       width: auto;
       opacity: 0;
-      transform: translateY(4px);
+     
 
       img {
         width: auto;
@@ -91,11 +91,12 @@
   }
 }
 
+
 .swiper-container_single-project {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  z-index: 3;
+  
 
   .swiper-wrapper {
     
@@ -107,12 +108,31 @@
       margin-top: 5vh;
     }
 
+    .swiper-spacer {
+      width: 40vw !important;
+      z-index: 99 !important;
+
+      @media screen and (max-width: 768px) {
+        height: 45vh;
+        margin-top: 2vh;
+        max-width: 95vw;
+        object-fit: contain;
+      }
+
+      @media screen and (max-width: 450px) {
+        height: 20vh;
+        margin-top: 5vh;
+        max-width: 95vw;
+        object-fit: contain;
+      }
+    }
+
     .swiper-slide {
       height: 100%;
       width: auto;
       opacity: 0;
-      transform: translateY(4px);
-
+      z-index: 1;
+      
       img {
         width: auto;
         height: 68vh;
@@ -120,14 +140,14 @@
         transition: all 1.5s ease-in-out;
 
         @media screen and (max-width: 768px) {
-          height: 45vh;
+          height: 55vh;
           margin-top: 2vh;
           max-width: 95vw;
           object-fit: contain;
         }
 
         @media screen and (max-width: 450px) {
-          height: 40vh;
+          height: 50vh;
           margin-top: 5vh;
           max-width: 95vw;
           object-fit: contain;
@@ -139,14 +159,14 @@
         transition: all 1.5s ease-in-out;
 
         @media screen and (max-width: 768px) {
-          height: 45vh;
+          height: 55vh;
           margin-top: 2vh;
           max-width: 95vw;
           object-fit: contain;
         }
 
         @media screen and (max-width: 450px) {
-          height: 40vh;
+          height: 50vh;
           margin-top: 5vh;
           max-width: 95vw;
           object-fit: contain;

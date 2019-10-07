@@ -25,12 +25,22 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'andi-mcleish' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			?>
-		</div><!-- .site-branding -->
+		<div class="header-wrapper">
+			<div class="site-branding">
+				<?php
+				the_custom_logo();
+				?>
+			</div>
 
+			<!-- Mobile Menu Button -->
+			<div class="menu-button-wrapper_mobile">
+				<div class="main-menu-toggle_mobile">
+					<button class="menu-toggle_open_mobile">MENU</button>
+					<button class="menu-toggle_close_mobile">CLOSE</button>
+				</div>
+			</div>
+		</div>
+		<!-- Site Navigation -->
 		<nav id="site-navigation" class="main-navigation">
 			<?php
 			wp_nav_menu( array(
@@ -38,8 +48,8 @@
 				'menu_id'        => 'primary-menu',
 			) );
 			?>
-		</nav><!-- #site-navigation -->
-	
+		</nav>
+		<!-- Main Menu Button -->
 		<div class="menu-button-wrapper">
 			<div class="main-menu-toggle">
 				<button class="menu-toggle_open">MENU</button>

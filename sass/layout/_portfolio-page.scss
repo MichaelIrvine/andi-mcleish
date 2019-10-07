@@ -45,6 +45,11 @@
         display: flex;
         justify-content: center;
         opacity: 0;
+
+        @media screen and (max-width: 768px){
+            height: 50vh;
+            overflow: hidden;
+        }
         
 
         .portfolio-images {
@@ -66,7 +71,16 @@
                 top: 0;
                 left: 0;
 
-                
+                @media screen and (max-width: 768px){
+                    height: 45vh;
+                }
+
+                img {
+                    @media screen and (max-width: 768px){
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
             }
         }
     }
