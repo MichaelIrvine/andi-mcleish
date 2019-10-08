@@ -730,10 +730,11 @@ a:hover, a:active {
   height: 28px;
   margin-top: auto;
   margin-bottom: auto;
+  display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .menu-button-wrapper_mobile {
-    display: none;
+    display: flex;
   }
 }
 .menu-button-wrapper_mobile .main-menu-toggle_mobile {
@@ -1285,6 +1286,11 @@ object {
 
 .portfolio-feature-image.display-image {
   opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  .portfolio-feature-image.display-image {
+    opacity: 0;
+  }
 }
 
 .portfolio-image-item:first-of-type > img {
