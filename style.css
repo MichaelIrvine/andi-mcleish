@@ -1379,7 +1379,7 @@ object {
   height: 16px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: #3c6e71;
+  background-color: #EC7357;
   opacity: 0.8;
   transition: width 500ms ease 0s, height 500ms ease 0s;
 }
@@ -1397,7 +1397,7 @@ object {
   height: 32px;
   width: 32px;
   background-color: transparent;
-  border: 1px solid #3c6e71;
+  border: 1px solid #EC7357;
 }
 
 #cursor.pulse {
