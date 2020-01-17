@@ -1216,7 +1216,7 @@ object {
 .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a {
   font-size: 1.3em;
   font-weight: 300;
-  color: #d9d9d9;
+  color: #321325;
   text-transform: uppercase;
   transition: color 850ms ease-in-out;
 }
@@ -1233,7 +1233,7 @@ object {
   }
 }
 .portfolio-main .portfolio-list-container .portfolio-list .project-list-item a:hover {
-  color: #321325;
+  color: #d9d9d9;
 }
 .portfolio-main .portfolio-image-container {
   display: flex;
@@ -1362,6 +1362,7 @@ object {
   height: 0;
   pointer-events: none;
   z-index: 999;
+  mix-blend-mode: difference;
 }
 @media screen and (max-width: 768px) {
   #cursor {
@@ -1396,7 +1397,7 @@ object {
   height: 32px;
   width: 32px;
   background-color: transparent;
-  border: 1px solid;
+  border: 1px solid #3c6e71;
 }
 
 #cursor.pulse {

@@ -40,7 +40,7 @@ get_header();
     <?php 
 	if($portfolioVideo): ?>
         <li class="swiper-slide swiper-slide_single-project">
-            <video muted loop autoPlay='true' width="670" height="450" class="single-project-video">
+            <video controls muted loop autoPlay='true' width="670" height="450" class="single-project-video">
                 <source src="<?php echo $portfolioVideo['url']; ?>" type="video/mp4">
             </video>
         </li>

@@ -7,7 +7,7 @@
     height: 0;
     pointer-events: none;
     z-index: 999;
-
+    mix-blend-mode: difference; 
     
 
     // Switch this on for mobile devices
@@ -28,7 +28,7 @@
         background-color: #3c6e71;
         opacity: 0.8;
         transition: width 500ms ease 0s, height 500ms ease 0s;
-       
+              
     }
 }
 
@@ -45,7 +45,8 @@
     height: 32px;  
     width: 32px;
     background-color: transparent;
-    border: 1px solid; 
+    border: 1px solid #3c6e71; 
+
 }
 
 #cursor.pulse {

@@ -161,4 +161,22 @@ export const PageAnimations = (function() {
 
     projectTitleFadeIn.play();
   }
+
+  if(body.classList.contains("page-coming-soon")){
+    const preLoader = document.querySelector(".preloader");
+
+    const csAnimation = new TimelineMax({
+      paused: true
+    });
+
+    csAnimation.fromTo(
+      preLoader,
+      0.5,
+      { opacity: 1 },
+      { opacity: 0, y: "-100vh", height: "1px" }
+    );
+
+    csAnimation.play();
+
+  }
 })();

@@ -81,7 +81,11 @@ if(body.classList.contains('archive')){
 				enabled: true,
 				releaseOnEdges: true,
 			},
-		
+			breakpoints: {
+				420: {
+				  freeMode: false,
+				},
+			  }
 		});
 	}
 
@@ -121,6 +125,11 @@ if(body.classList.contains('single-projects')){
 				enabled: true,
 				releaseOnEdges: true,
 			},
+			breakpoints: {
+				420: {
+				  freeMode: false,
+				},
+			  }
 		
 		});
 	}
