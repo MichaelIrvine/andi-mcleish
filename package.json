@@ -4,7 +4,7 @@
   "description": "Portfolio for Andi McLeish",
   "main": "index.js",
   "dependencies": {
-    "gsap": "^2.1.3",
+    "gsap": "^3.6.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "swiper": "^4.5.0"
